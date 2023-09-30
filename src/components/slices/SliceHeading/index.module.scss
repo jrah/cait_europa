@@ -1,0 +1,16 @@
+$sizes: (64px, 48px, 24px, 16px, 14px);
+@import "/./src/app/utils.scss";
+
+.type {
+  @apply font-bold;
+  @for $i from 1 to length($sizes) {
+    & :global(.h#{$i}) {
+      font-size: floor(nth($sizes, $i));
+      font-size: floor(em(nth($sizes, $i)));
+      @include mq(tablet-portrait-up) {
+        font-size: floor(nth($sizes, $i) * 1.67);
+        font-size: floor(em(nth($sizes, $i) * 1.67));
+      }
+    }
+  }
+}

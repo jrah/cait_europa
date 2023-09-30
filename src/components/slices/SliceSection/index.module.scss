@@ -1,0 +1,23 @@
+$sizes: (160px, 270px);
+@import "/./src/app/utils.scss";
+
+@function pxem($conversion, $factor: 1) {
+  @return floor(em($conversion) * $factor);
+}
+
+.vertical-spacing {
+  &-standard {
+    padding-top: #{pxem(nth($sizes, 1))};
+    @include mq(tablet-portrait-up) {
+      padding-top: #{pxem(nth($sizes, 1), 1.7)};
+    }
+  }
+  @for $i from 1 to length($sizes) {
+    &-#{$i} {
+      padding-top: #{pxem(nth($sizes, $i))};
+      @include mq(tablet-portrait-up) {
+        padding-top: #{pxem(nth($sizes, $i), 1.7)};
+      }
+    }
+  }
+}

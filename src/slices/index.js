@@ -4,4 +4,6 @@ import dynamic from "next/dynamic";
 
 export const components = {
   grid_list: dynamic(() => import("./GridList")),
+  text_splash: dynamic(() => import("./TextSplash")),
+
 };

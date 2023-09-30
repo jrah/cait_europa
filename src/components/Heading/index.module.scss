@@ -1,0 +1,10 @@
+$sizes: (96px, 60px, 36px, 24px, 16px);
+$line-height: (96px, 60px, 36px, 24px, 16px);
+
+.type {
+  @for $i from 1 to length($sizes) {
+    & :global(.h#{$i}) {
+      font-size: nth($sizes, $i);
+    }
+  }
+}

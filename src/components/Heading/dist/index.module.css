@@ -1,0 +1,12 @@
+.type :global(.h1) {
+  font-size: 96px;
+}
+.type :global(.h2) {
+  font-size: 60px;
+}
+.type :global(.h3) {
+  font-size: 36px;
+}
+.type :global(.h4) {
+  font-size: 24px;
+}

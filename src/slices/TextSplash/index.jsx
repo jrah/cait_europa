@@ -1,8 +1,8 @@
 import React from "react";
 import { PrismicRichText } from "@prismicio/react";
-import SliceHeading from "components/slices/SliceHeading";
+import SliceHeading from "@/components/slices/SliceHeading";
 import styles from "./index.module.scss";
-import SliceSection from "components/slices/SliceSection";
+import SliceSection from "@/components/slices/SliceSection";
 /**
  * Props for `TextSplash`.
  */

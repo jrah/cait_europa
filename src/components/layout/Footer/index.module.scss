@@ -1,0 +1,20 @@
+@import "/./src/app/utils.scss";
+
+.frame {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  @include mq(desktop-up) {
+    flex-direction: row;
+  }
+  @apply py-12;
+}
+
+.notice {
+  @apply mt-6;
+  @include mq(desktop-up) {
+    @apply mt-0;
+  }
+  color: var(--dark-grey-color);
+}

@@ -1,0 +1,10 @@
+.container {
+  @apply py-12;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  @apply p-4;
+  display: block;
+}

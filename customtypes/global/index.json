@@ -1,0 +1,59 @@
+{
+  "id": "global",
+  "label": "Global",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {},
+    "Footer": {
+      "image": {
+        "type": "Image",
+        "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+      },
+      "notice": {
+        "type": "Text",
+        "config": { "label": "Notice", "placeholder": "" }
+      }
+    },
+    "Navigation": {
+      "navigation_image": {
+        "type": "Image",
+        "config": {
+          "label": "Navigation image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "buttons": {
+        "type": "Group",
+        "config": {
+          "label": "Buttons",
+          "fields": {
+            "button_text": {
+              "type": "Text",
+              "config": { "label": "Button text", "placeholder": "" }
+            },
+            "button_link": {
+              "type": "Link",
+              "config": {
+                "label": "Button link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "button_style": {
+              "type": "Select",
+              "config": {
+                "label": "Button style",
+                "placeholder": "",
+                "options": ["primary", "secondary"],
+                "default_value": "primary"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

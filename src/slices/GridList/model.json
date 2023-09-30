@@ -1,0 +1,16 @@
+{
+  "id": "grid_list",
+  "type": "SharedSlice",
+  "name": "GridList",
+  "description": "GridList",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

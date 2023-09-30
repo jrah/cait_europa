@@ -1,0 +1,192 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "2023 Korea University Programme",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "sub_heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Eget nunc scelerisque viverra mauris in aliquam sem fringilla ut. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. ",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "page_headline": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "background_color": {
+        "__TYPE__": "FieldContent",
+        "type": "Color",
+        "value": "#EEF2FF"
+      },
+      "gradient_color_top": {
+        "__TYPE__": "FieldContent",
+        "value": "none",
+        "type": "Select"
+      },
+      "gradient_color_bottom": {
+        "__TYPE__": "FieldContent",
+        "value": "none",
+        "type": "Select"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "meta_heading",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Location",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "meta_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "London & Cambridge",
+                    "spans": [
+                      {
+                        "type": "strong",
+                        "start": 0,
+                        "end": 18
+                      }
+                    ]
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "meta_heading",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Days",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "meta_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "5",
+                    "spans": [
+                      {
+                        "type": "strong",
+                        "start": 0,
+                        "end": 1
+                      }
+                    ]
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "meta_heading",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Speakers",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "meta_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "6",
+                    "spans": [
+                      {
+                        "type": "strong",
+                        "start": 0,
+                        "end": 1
+                      }
+                    ]
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

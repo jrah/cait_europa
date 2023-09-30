@@ -1,0 +1,15 @@
+@import "/./src/app/utils.scss";
+
+.container {
+  max-width: 54rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.heading-variant {
+  &-default {
+    max-width: 44rem;
+  }
+}

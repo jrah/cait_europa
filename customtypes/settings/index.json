@@ -1,0 +1,33 @@
+{
+  "id": "settings",
+  "label": "settings",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {},
+    "Theme": {
+      "colors": {
+        "type": "Group",
+        "config": {
+          "label": "Colors",
+          "fields": {
+            "primary": {
+              "type": "Color",
+              "config": { "label": "Primary", "placeholder": "" }
+            },
+            "secondary": {
+              "type": "Color",
+              "config": { "label": "Secondary", "placeholder": "" }
+            },
+            "alternate": {
+              "type": "Color",
+              "config": { "label": "Alternate", "placeholder": "" }
+            }
+          }
+        }
+      }
+    },
+    "SEO": {}
+  }
+}

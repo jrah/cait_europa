@@ -1,4 +1,4 @@
-import './globals.css'
+import './globals.scss'
 import { Inter } from 'next/font/google'
 import { PrismicPreview } from '@prismicio/next'
 import { cait } from '@/prismicio'

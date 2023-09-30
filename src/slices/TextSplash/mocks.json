@@ -64,15 +64,9 @@
 					[
 						"button_text",
 						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Et occaecat veniam eu sit ex."
-									}
-								}
-							]
+							"__TYPE__": "FieldContent",
+							"value": "rising",
+							"type": "Text"
 						}
 					],
 					[
@@ -84,6 +78,14 @@
 								"url": "https://prismic.io"
 							}
 						}
+					],
+					[
+						"button_type",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "2",
+							"type": "Select"
+						}
 					]
 				]
 			},
@@ -93,15 +95,9 @@
 					[
 						"button_text",
 						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Veniam sint velit minim sit et eiusmod quis consectetur cillum. Est eu eiusmod do culpa adipisicing. Nostrud eiusmod proident in ex non consequat laborum cillum tempor enim."
-									}
-								}
-							]
+							"__TYPE__": "FieldContent",
+							"value": "son",
+							"type": "Text"
 						}
 					],
 					[
@@ -113,6 +109,14 @@
 								"url": "https://prismic.io"
 							}
 						}
+					],
+					[
+						"button_type",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "2",
+							"type": "Select"
+						}
 					]
 				]
 			},
@@ -122,15 +126,9 @@
 					[
 						"button_text",
 						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Reprehenderit minim nostrud irure ullamco veniam excepteur ea adipisicing nostrud proident. Esse minim esse ut deserunt sunt in nulla sint culpa est excepteur cillum irure. Incididunt commodo reprehenderit proident sint officia duis id eiusmod pariatur elit ea ipsum."
-									}
-								}
-							]
+							"__TYPE__": "FieldContent",
+							"value": "each",
+							"type": "Text"
 						}
 					],
 					[
@@ -141,6 +139,14 @@
 								"__TYPE__": "ExternalLink",
 								"url": "http://google.com"
 							}
+						}
+					],
+					[
+						"button_type",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "2",
+							"type": "Select"
 						}
 					]
 				]

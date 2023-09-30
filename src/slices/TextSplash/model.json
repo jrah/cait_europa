@@ -93,21 +93,30 @@
         }
       },
       "items": {
-        "button_text": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Button text",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-          }
-        },
         "button_link": {
           "type": "Link",
           "config": {
             "label": "Button link",
             "placeholder": "",
             "select": null
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button text",
+            "placeholder": ""
+          }
+        },
+        "button_type": {
+          "type": "Select",
+          "config": {
+            "label": "Button type",
+            "placeholder": "",
+            "options": [
+              "1",
+              "2"
+            ]
           }
         }
       }

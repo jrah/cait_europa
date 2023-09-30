@@ -1,5 +1,5 @@
 import React from "react";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicRichText, PrismicLink } from "@prismicio/react";
 import SliceHeading from "@/components/slices/SliceHeading";
 import styles from "./index.module.scss";
 import SliceSection from "@/components/slices/SliceSection";
@@ -100,10 +100,11 @@ const VariationDefault = ({ primary, items }) => {
                 </p>
               ),
             }}
-          /></div>
+          />
+          <List items={items} />
+        </div>
         <Image src={primary.image.url} alt={primary.image.alt} width={500} height={500} />
       </div>
-      <List items={items} />
     </div>
   );
 };
@@ -114,9 +115,7 @@ function List({ items }) {
   const listItems = items.map((item, index) => {
     return (
       <div key={index} className={`${index}-item`}>
-        <span>
-          {index}
-        </span>
+        <PrismicLink field={item.button_link} className="button-primary button">{item.button_text}</PrismicLink>
       </div>
     );
   });

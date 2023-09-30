@@ -25,12 +25,13 @@ function SliceSection({
       : styles["vertical-spacing-standard"];
   };
 
-  const getBackground = (background_color) => {
-    return backgroundColor;
-  };
+  console.log(backgroundColor)
+  const CSSVariableReferenceValue = backgroundColor ? {
+    "--slice-background-color": backgroundColor
+  } : {}
   return (
     <section
-      style={{ backgroundColor: getBackground(backgroundColor) }}
+      style={CSSVariableReferenceValue}
       className={clsx(
         sliceClass(),
         { container: noContainer ? false : true },

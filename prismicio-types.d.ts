@@ -373,24 +373,24 @@ export interface TextSplashSliceDefaultPrimary {
  */
 export interface TextSplashSliceDefaultItem {
   /**
-   * Meta heading field in *TextSplash → Items*
+   * Button text field in *TextSplash → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: text_splash.items[].meta_heading
+   * - **API ID Path**: text_splash.items[].button_text
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  meta_heading: prismic.RichTextField;
+  button_text: prismic.RichTextField;
 
   /**
-   * Meta description field in *TextSplash → Items*
+   * Button link field in *TextSplash → Items*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: text_splash.items[].meta_description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **API ID Path**: text_splash.items[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  meta_description: prismic.RichTextField;
+  button_link: prismic.LinkField;
 }
 
 /**

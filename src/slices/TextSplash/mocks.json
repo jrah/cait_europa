@@ -1,192 +1,150 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "default",
-    "primary": {
-      "heading": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading1",
-            "content": {
-              "text": "2023 Korea University Programme",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "sub_heading": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-              "spans": []
-            },
-            "direction": "ltr"
-          },
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Eget nunc scelerisque viverra mauris in aliquam sem fringilla ut. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. ",
-              "spans": []
-            },
-            "direction": "ltr"
-          }
-        ]
-      },
-      "page_headline": {
-        "__TYPE__": "BooleanContent",
-        "value": true
-      },
-      "background_color": {
-        "__TYPE__": "FieldContent",
-        "type": "Color",
-        "value": "#EEF2FF"
-      },
-      "gradient_color_top": {
-        "__TYPE__": "FieldContent",
-        "value": "none",
-        "type": "Select"
-      },
-      "gradient_color_bottom": {
-        "__TYPE__": "FieldContent",
-        "value": "none",
-        "type": "Select"
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "meta_heading",
-            {
-              "__TYPE__": "StructuredTextContent",
-              "value": [
-                {
-                  "type": "paragraph",
-                  "content": {
-                    "text": "Location",
-                    "spans": []
-                  },
-                  "direction": "ltr"
-                }
-              ]
-            }
-          ],
-          [
-            "meta_description",
-            {
-              "__TYPE__": "StructuredTextContent",
-              "value": [
-                {
-                  "type": "paragraph",
-                  "content": {
-                    "text": "London & Cambridge",
-                    "spans": [
-                      {
-                        "type": "strong",
-                        "start": 0,
-                        "end": 18
-                      }
-                    ]
-                  },
-                  "direction": "ltr"
-                }
-              ]
-            }
-          ]
-        ]
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "meta_heading",
-            {
-              "__TYPE__": "StructuredTextContent",
-              "value": [
-                {
-                  "type": "paragraph",
-                  "content": {
-                    "text": "Days",
-                    "spans": []
-                  },
-                  "direction": "ltr"
-                }
-              ]
-            }
-          ],
-          [
-            "meta_description",
-            {
-              "__TYPE__": "StructuredTextContent",
-              "value": [
-                {
-                  "type": "paragraph",
-                  "content": {
-                    "text": "5",
-                    "spans": [
-                      {
-                        "type": "strong",
-                        "start": 0,
-                        "end": 1
-                      }
-                    ]
-                  },
-                  "direction": "ltr"
-                }
-              ]
-            }
-          ]
-        ]
-      },
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": [
-          [
-            "meta_heading",
-            {
-              "__TYPE__": "StructuredTextContent",
-              "value": [
-                {
-                  "type": "paragraph",
-                  "content": {
-                    "text": "Speakers",
-                    "spans": []
-                  },
-                  "direction": "ltr"
-                }
-              ]
-            }
-          ],
-          [
-            "meta_description",
-            {
-              "__TYPE__": "StructuredTextContent",
-              "value": [
-                {
-                  "type": "paragraph",
-                  "content": {
-                    "text": "6",
-                    "spans": [
-                      {
-                        "type": "strong",
-                        "start": 0,
-                        "end": 1
-                      }
-                    ]
-                  },
-                  "direction": "ltr"
-                }
-              ]
-            }
-          ]
-        ]
-      }
-    ]
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "2023 Korea University Programme",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"sub_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eget nunc scelerisque viverra mauris in aliquam sem fringilla ut. Feugiat sed lectus vestibulum mattis ullamcorper velit sed. ",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"page_headline": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"type": "Color",
+				"value": "#EEF2FF"
+			},
+			"gradient_color_top": {
+				"__TYPE__": "FieldContent",
+				"value": "none",
+				"type": "Select"
+			},
+			"gradient_color_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "none",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"button_text",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Et occaecat veniam eu sit ex."
+									}
+								}
+							]
+						}
+					],
+					[
+						"button_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"button_text",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Veniam sint velit minim sit et eiusmod quis consectetur cillum. Est eu eiusmod do culpa adipisicing. Nostrud eiusmod proident in ex non consequat laborum cillum tempor enim."
+									}
+								}
+							]
+						}
+					],
+					[
+						"button_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"button_text",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Reprehenderit minim nostrud irure ullamco veniam excepteur ea adipisicing nostrud proident. Esse minim esse ut deserunt sunt in nulla sint culpa est excepteur cillum irure. Incididunt commodo reprehenderit proident sint officia duis id eiusmod pariatur elit ea ipsum."
+									}
+								}
+							]
+						}
+					],
+					[
+						"button_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://google.com"
+							}
+						}
+					]
+				]
+			}
+		]
+	}
 ]

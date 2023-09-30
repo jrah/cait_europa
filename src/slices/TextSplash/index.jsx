@@ -20,6 +20,8 @@ const TextSplash = ({ slice, context }) => {
       sliceType={slice.slice_type}
       sliceVariation={slice.variation}
       noContainer={slice.variation ? "textSplashWithForm" : true}
+      classes={styles["background-color"]}
+      backgroundColor={slice.primary.background_color}
     >
       <VariationComponent data={slice} />
     </SliceSection>
@@ -35,6 +37,7 @@ const VariationComponent = ({ data }) => {
 };
 
 const VariationDefault = ({ primary, items }) => {
+
   const components = {
     heading1: ({ children }) => (
       <SliceHeading
@@ -82,7 +85,7 @@ const VariationDefault = ({ primary, items }) => {
     },
   };
   return (
-    <div className={styles.container}>
+    <div className={clsx(styles.container)}>
       <div className={styles["two-column"]}>
         <div>
           <div className={styles["heading-variant-default"]}>

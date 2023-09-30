@@ -9,7 +9,7 @@ $sizes: (160px, 270px);
   &-standard {
     padding-top: #{pxem(nth($sizes, 1))};
     @include mq(tablet-portrait-up) {
-      padding-top: #{pxem(nth($sizes, 1), 1.7)};
+      padding-top: #{pxem(nth($sizes, 1), 0)};
     }
   }
   @for $i from 1 to length($sizes) {

@@ -3,6 +3,8 @@ import { PrismicRichText } from "@prismicio/react";
 import SliceHeading from "@/components/slices/SliceHeading";
 import styles from "./index.module.scss";
 import SliceSection from "@/components/slices/SliceSection";
+import Image from "next/image";
+import clsx from "clsx";
 /**
  * Props for `TextSplash`.
  */
@@ -37,6 +39,7 @@ const VariationDefault = ({ primary, items }) => {
     heading1: ({ children }) => (
       <SliceHeading
         className="primary-text-color font-bold leading-tight"
+        cssModuleElement={clsx(styles.h1, styles.heading)}
         isPageHeadline={primary.page_headline}
       >
         {children}
@@ -80,19 +83,23 @@ const VariationDefault = ({ primary, items }) => {
   };
   return (
     <div className={styles.container}>
-      <div className={styles["heading-variant-default"]}>
-        <PrismicRichText field={primary.heading} components={components} />
+      <div className={styles["two-column"]}>
+        <div>
+          <div className={styles["heading-variant-default"]}>
+            <PrismicRichText field={primary.heading} components={components} />
+          </div>
+          <PrismicRichText
+            field={primary.sub_heading}
+            components={{
+              paragraph: ({ children }) => (
+                <p className="mt-6 text-2xl font-light leading-relaxed tracking-tight text-slate-700">
+                  {children}
+                </p>
+              ),
+            }}
+          /></div>
+        <Image src={primary.image.url} alt={primary.image.alt} width={500} height={500} />
       </div>
-      <PrismicRichText
-        field={primary.sub_heading}
-        components={{
-          paragraph: ({ children }) => (
-            <p className="mt-6 text-2xl font-light leading-relaxed tracking-tight text-blue-900">
-              {children}
-            </p>
-          ),
-        }}
-      />
       <List items={items} />
     </div>
   );
@@ -104,24 +111,9 @@ function List({ items }) {
   const listItems = items.map((item, index) => {
     return (
       <div key={index} className={`${index}-item`}>
-        <PrismicRichText
-          field={item.meta_heading}
-          components={{
-            paragraph: ({ children }) => (
-              <dt className="primary-text-color font-light">{children}</dt>
-            ),
-          }}
-        />
-        <PrismicRichText
-          field={item.meta_description}
-          components={{
-            paragraph: ({ children }) => (
-              <dd className="secondary-text-color text-2xl font-semibold">
-                {children}
-              </dd>
-            ),
-          }}
-        />
+        <span>
+          {index}
+        </span>
       </div>
     );
   });

@@ -1,7 +1,7 @@
 @import "/./src/app/utils.scss";
 
 .container {
-  max-width: 54rem;
+  max-width: 82rem;
   padding-left: 2rem;
   padding-right: 2rem;
   margin-right: auto;
@@ -12,4 +12,18 @@
   &-default {
     max-width: 44rem;
   }
+}
+
+.h1 {
+  @apply text-4xl font-bold sm:text-6xl;
+}
+
+.heading {
+  @apply tracking-tight text-slate-800;
+}
+
+.two-column {
+  display: flex;
+  column-gap: 2.5rem;
+  align-items: center;
 }

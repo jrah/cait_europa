@@ -1,10 +1,12 @@
 import { ReactNode } from "react";
 import styles from "./index.module.scss";
+import clsx from "clsx";
 export const sliceHeadingStyles = styles;
 function SliceHeading({
   children,
   isPageHeadline,
   className,
+  cssModuleElement
 }: {
   children: ReactNode;
   isPageHeadline: boolean;
@@ -12,7 +14,8 @@ function SliceHeading({
 }) {
   const HeadingTag = isPageHeadline ? "h1" : "h2";
   const cssClasses = className ? `${className} ${styles.type}` : styles.type;
-  return <HeadingTag className={cssClasses}>{children}</HeadingTag>;
+  console.log(cssModuleElement)
+  return <HeadingTag className={clsx(cssClasses, cssModuleElement)} >{children}</HeadingTag>;
 }
 
 export default SliceHeading;

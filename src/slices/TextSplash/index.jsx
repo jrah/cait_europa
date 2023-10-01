@@ -5,6 +5,7 @@ import styles from "./index.module.scss";
 import SliceSection from "@/components/slices/SliceSection";
 import Image from "next/image";
 import clsx from "clsx";
+import VariationTextSplashWithBody from "./variants/textSplashWithBody";
 /**
  * Props for `TextSplash`.
  */
@@ -30,6 +31,9 @@ const TextSplash = ({ slice, context }) => {
 
 const VariationComponent = ({ data }) => {
   const { primary, items, variation } = data;
+  if (variation === "textSplashWithBody") {
+    return <VariationTextSplashWithBody primary={primary} items={items} />;
+  }
   if (variation === "default") {
     return <VariationDefault primary={primary} items={items} />;
   }

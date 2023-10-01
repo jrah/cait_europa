@@ -1,0 +1,14 @@
+@import "/./src/app/utils.scss";
+
+.two-column {
+  @include mq(tablet-landscape-up) {
+    column-gap: 2.5rem;
+    display: flex;
+    align-items: center;
+  }
+  & .image {
+    margin-left: auto;
+    margin-right: auto;
+    @apply rounded-2xl;
+  }
+}

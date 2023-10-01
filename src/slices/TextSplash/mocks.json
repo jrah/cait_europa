@@ -152,5 +152,119 @@
 				]
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "textSplashWithBody",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consequat fugiat eiusmod culpa incididunt eu magna velit. Magna voluptate cillum elit aute exercitation ullamco officia consequat proident labore amet."
+						}
+					}
+				]
+			},
+			"sub_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nisi cupidatat enim id. Cupidatat culpa officia laborum enim elit nulla occaecat labore."
+						}
+					}
+				]
+			},
+			"page_headline": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#67c662",
+				"type": "Color"
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+					"width": 6000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+				"width": 6000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"gradient_color_top": {
+				"__TYPE__": "FieldContent",
+				"value": "none",
+				"type": "Select"
+			},
+			"gradient_color_bottom": {
+				"__TYPE__": "FieldContent",
+				"value": "secondary-to-white",
+				"type": "Select"
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliquip ut sit consequat laboris sunt non elit sunt minim cupidatat pariatur."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"button_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://google.com"
+							}
+						}
+					],
+					[
+						"button_text",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "unknown",
+							"type": "Text"
+						}
+					],
+					[
+						"button_type",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "2",
+							"type": "Select"
+						}
+					]
+				]
+			}
+		]
 	}
 ]

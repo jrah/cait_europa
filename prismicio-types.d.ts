@@ -417,9 +417,161 @@ export type TextSplashSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *TextSplash → Primary*
+ */
+export interface TextSplashSliceTextSplashWithBodyPrimary {
+  /**
+   * Heading field in *TextSplash → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_splash.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Sub heading field in *TextSplash → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_splash.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.RichTextField;
+
+  /**
+   * Page headline field in *TextSplash → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: text_splash.primary.page_headline
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  page_headline: prismic.BooleanField;
+
+  /**
+   * Background color field in *TextSplash → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_splash.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  background_color: prismic.ColorField;
+
+  /**
+   * image field in *TextSplash → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_splash.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Gradient color top field in *TextSplash → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: text_splash.primary.gradient_color_top
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  gradient_color_top: prismic.SelectField<
+    | "none"
+    | "primary-to-white"
+    | "secondary-to-white"
+    | "white-to-primary"
+    | "white-to-secondary",
+    "filled"
+  >;
+
+  /**
+   * Gradient color bottom field in *TextSplash → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: none
+   * - **API ID Path**: text_splash.primary.gradient_color_bottom
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  gradient_color_bottom: prismic.SelectField<
+    | "none"
+    | "primary-to-white"
+    | "secondary-to-white"
+    | "white-to-primary"
+    | "white-to-secondary",
+    "filled"
+  >;
+
+  /**
+   * Body field in *TextSplash → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_splash.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *TextSplash → Items*
+ */
+export interface TextSplashSliceTextSplashWithBodyItem {
+  /**
+   * Button link field in *TextSplash → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_splash.items[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button text field in *TextSplash → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_splash.items[].button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button type field in *TextSplash → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_splash.items[].button_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  button_type: prismic.SelectField<"1" | "2">;
+}
+
+/**
+ * TextSplashWithBody variation for TextSplash Slice
+ *
+ * - **API ID**: `textSplashWithBody`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSplashSliceTextSplashWithBody = prismic.SharedSliceVariation<
+  "textSplashWithBody",
+  Simplify<TextSplashSliceTextSplashWithBodyPrimary>,
+  Simplify<TextSplashSliceTextSplashWithBodyItem>
+>;
+
+/**
  * Slice variation for *TextSplash*
  */
-type TextSplashSliceVariation = TextSplashSliceDefault;
+type TextSplashSliceVariation =
+  | TextSplashSliceDefault
+  | TextSplashSliceTextSplashWithBody;
 
 /**
  * TextSplash Shared Slice
@@ -459,8 +611,11 @@ declare module "@prismicio/client" {
       TextSplashSlice,
       TextSplashSliceDefaultPrimary,
       TextSplashSliceDefaultItem,
+      TextSplashSliceTextSplashWithBodyPrimary,
+      TextSplashSliceTextSplashWithBodyItem,
       TextSplashSliceVariation,
       TextSplashSliceDefault,
+      TextSplashSliceTextSplashWithBody,
     };
   }
 }

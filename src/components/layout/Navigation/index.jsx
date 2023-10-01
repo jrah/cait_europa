@@ -1,12 +1,15 @@
 import React from "react";
 import clsx from "clsx";
 import styles from "./index.module.scss";
-import { PrismicLink } from "@prismicio/react";
-export default function Navigation({ buttons }) {
+import { PrismicLink, PrismicImage } from "@prismicio/react";
+export default function Navigation(props) {
+  const { navigationImage, buttons } = props;
+
   if (!buttons) return null
   return (
     <div className={styles['background-color']}>
       <div className={clsx("container mx-auto", styles.container)}>
+        <PrismicImage field={navigationImage} width="150" height="150"></PrismicImage>
         <div>{listButtons(buttons)}</div>
       </div>
     </div>
@@ -14,7 +17,7 @@ export default function Navigation({ buttons }) {
 }
 
 function listButtons(buttons) {
-  if (!buttons) return nul;
+  if (!buttons) return null;
   const filterButtonsWithText = buttons.filter(button => button.button_text !== null)
   return filterButtonsWithText.map((button, index) => {
     const { button_text, button_link } = button

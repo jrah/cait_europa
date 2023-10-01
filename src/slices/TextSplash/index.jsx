@@ -103,7 +103,7 @@ const VariationDefault = ({ primary, items }) => {
           />
           <List items={items} />
         </div>
-        <Image src={primary.image.url} alt={primary.image.alt} width={500} height={500} />
+        <Image src={primary.image.url} alt={primary.image.alt} width={500} height={500} className={styles.image} />
       </div>
     </div>
   );

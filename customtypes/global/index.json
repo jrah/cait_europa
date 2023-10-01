@@ -9,11 +9,18 @@
     "Footer": {
       "image": {
         "type": "Image",
-        "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
       },
       "notice": {
         "type": "Text",
-        "config": { "label": "Notice", "placeholder": "" }
+        "config": {
+          "label": "Notice",
+          "placeholder": ""
+        }
       }
     },
     "Navigation": {
@@ -32,7 +39,10 @@
           "fields": {
             "button_text": {
               "type": "Text",
-              "config": { "label": "Button text", "placeholder": "" }
+              "config": {
+                "label": "Button text",
+                "placeholder": ""
+              }
             },
             "button_link": {
               "type": "Link",
@@ -52,6 +62,13 @@
               }
             }
           }
+        }
+      },
+      "background_color": {
+        "type": "Color",
+        "config": {
+          "label": "Background color",
+          "placeholder": ""
         }
       }
     }

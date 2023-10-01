@@ -86,6 +86,17 @@ interface GlobalDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   buttons: prismic.GroupField<Simplify<GlobalDocumentDataButtonsItem>>;
+
+  /**
+   * Background color field in *Global*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global.background_color
+   * - **Tab**: Navigation
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  background_color: prismic.ColorField;
 }
 
 /**

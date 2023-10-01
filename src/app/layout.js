@@ -22,9 +22,7 @@ const {
   image,
   notice
 } = globalSettings.data || {}
-console.log(globalSettings)
 export default function RootLayout({ children }) {
-  console.log(navigation_image)
   return (
     <html lang="en">
       <body>

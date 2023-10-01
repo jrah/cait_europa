@@ -1,0 +1,42 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Fugiat cillum voluptate ullamco elit officia proident nisi enim. Fugiat labore occaecat tempor enim."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"type",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Text area",
+							"type": "Select"
+						}
+					],
+					[
+						"text",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "stone",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

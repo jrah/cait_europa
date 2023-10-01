@@ -1,0 +1,52 @@
+{
+  "id": "form",
+  "type": "SharedSlice",
+  "name": "Form",
+  "description": "Form",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {
+        "type": {
+          "type": "Select",
+          "config": {
+            "label": "Type",
+            "placeholder": "",
+            "options": [
+              "Text",
+              "Text area",
+              "Email",
+              "Submit",
+              "Combo box",
+              "Paragraph"
+            ],
+            "default_value": "Text"
+          }
+        },
+        "text": {
+          "type": "Text",
+          "config": {
+            "label": "Text",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

@@ -115,7 +115,7 @@ export type GlobalDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomeDocumentDataSlicesSlice = TextSplashSlice | GridListSlice;
+type HomeDocumentDataSlicesSlice = FormSlice | TextSplashSlice | GridListSlice;
 
 /**
  * Content for home documents
@@ -256,6 +256,77 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes = GlobalDocument | HomeDocument | SettingsDocument;
+
+/**
+ * Primary content in *Form → Primary*
+ */
+export interface FormSliceDefaultPrimary {
+  /**
+   * Heading field in *Form → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Form → Items*
+ */
+export interface FormSliceDefaultItem {
+  /**
+   * Type field in *Form → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Text
+   * - **API ID Path**: form.items[].type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  type: prismic.SelectField<
+    "Text" | "Text area" | "Email" | "Submit" | "Combo box" | "Paragraph",
+    "filled"
+  >;
+
+  /**
+   * Text field in *Form → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Form Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FormSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FormSliceDefaultPrimary>,
+  Simplify<FormSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Form*
+ */
+type FormSliceVariation = FormSliceDefault;
+
+/**
+ * Form Shared Slice
+ *
+ * - **API ID**: `form`
+ * - **Description**: Form
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FormSlice = prismic.SharedSlice<"form", FormSliceVariation>;
 
 /**
  * Default variation for GridList Slice
@@ -631,6 +702,11 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataColorsItem,
       AllDocumentTypes,
+      FormSlice,
+      FormSliceDefaultPrimary,
+      FormSliceDefaultItem,
+      FormSliceVariation,
+      FormSliceDefault,
       GridListSlice,
       GridListSliceVariation,
       GridListSliceDefault,

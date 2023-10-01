@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  form: dynamic(() => import("./Form")),
   grid_list: dynamic(() => import("./GridList")),
   text_splash: dynamic(() => import("./TextSplash")),
-
 };

@@ -127,7 +127,7 @@ const VariationDefault = ({ primary, items }) => {
   const TextArea = ({ label, children }) => {
     return (
       <div className="form-item">
-        <label htmlFor={label}>{label}</label>
+        <label htmlFor={label}>{children}</label>
         <textarea
           id={label}
           name={label}

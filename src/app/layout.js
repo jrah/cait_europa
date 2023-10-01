@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { PrismicPreview } from '@prismicio/next'
 import { cait, createClient } from '@/prismicio'
 import Navigation from "@/components/layout/navigation";
-
+import Footer from '@/components/layout/Footer';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -18,8 +18,10 @@ const globalSettings = await client.getSingle("global")
 const {
   navigation_image,
   buttons,
-  background_color
-} = globalSettings.data || {};
+  background_color,
+  image,
+  notice
+} = globalSettings.data || {}
 console.log(globalSettings)
 export default function RootLayout({ children }) {
   console.log(navigation_image)
@@ -28,6 +30,7 @@ export default function RootLayout({ children }) {
       <body>
         {globalSettings ? <Navigation buttons={buttons} navigationImage={navigation_image} backgroundColor={background_color} /> : null}
         {children}
+        <Footer navigationImage={image} backgroundColor={background_color} notice={notice} />
         <PrismicPreview repositoryName={cait} />
       </body>
     </html>

@@ -16,5 +16,5 @@
   @include mq(desktop-up) {
     @apply mt-0;
   }
-  color: var(--dark-grey-color);
+  @apply text-xs leading-5 text-gray-500;
 }

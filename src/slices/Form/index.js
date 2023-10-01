@@ -85,7 +85,7 @@ const VariationDefault = ({ primary, items }) => {
   const BaseInput = ({ label, children, type }) => {
     return (
       <div className="form-item">
-        <label htmlFor={label} className="block text-sm font-medium leading-6 text-gray-900">{label}</label>
+        <label htmlFor={label} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
         <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           name={label} id={label} type={type} placeholder={children} />
       </div>
@@ -106,8 +106,22 @@ const VariationDefault = ({ primary, items }) => {
   };
 
   const ComboBox = ({ label, ...props }) => {
+    const { type, extended, children } = props
+    console.log(children)
     return (
-      <BaseInput type="text" label={label} {...props} />
+      <div className="form-item">
+        <label htmlFor={label} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
+        <select
+          id={label}
+          name={label}
+          autoComplete={`${label}-name`}
+          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+        ><PrismicRichText field={extended} components={{
+          list: ({ children }) => children,
+          listItem: ({ children }) => <option>{children}</option>
+        }} />
+        </select>
+      </div>
     );
   };
 
@@ -150,6 +164,20 @@ const VariationDefault = ({ primary, items }) => {
   const formTypeSantize = (type) => {
     return type.replace(/\s/g, '').toLowerCase()
   }
+  const richTextGetLabel = (context) => {
+    if (!Array.isArray(context)) return false
+    const [label] = context
+    return label.text
+  }
+  const richTextGetExtended = (context) => {
+    if (context.length < 2) return []
+    return context.slice(1);
+  }
+  const formInputID = (context) => {
+    const getID = richTextGetLabel(context)
+    return getID.replace(/\s/g, '').toLowerCase()
+
+  }
   return (
     <div>
       <SectionHeading heading={primary.heading} />
@@ -157,7 +185,7 @@ const VariationDefault = ({ primary, items }) => {
         {items.map((item, index) => {
           const FormType = formTypes[formTypeSantize(item.type)];
           if (FormType) {
-            return <FormType key={index} label={formTypeSantize(item.type)} type={formTypeSantize(item.type)}>{item.text}</FormType>;
+            return <FormType key={index} label={formInputID(item.text)} type={formTypeSantize(item.type)} extended={richTextGetExtended(item.text)}>{richTextGetLabel(item.text)}</FormType>;
           } else {
             return <div key={index}>Unknown Form Element: {formTypeSantize(item.type)}</div>;
           }

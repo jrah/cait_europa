@@ -30,9 +30,15 @@
 					[
 						"text",
 						{
-							"__TYPE__": "FieldContent",
-							"value": "stone",
-							"type": "Text"
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Tempor fugiat exercitation aliquip nulla qui deserunt commodo in."
+									}
+								}
+							]
 						}
 					]
 				]

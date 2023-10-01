@@ -291,14 +291,14 @@ export interface FormSliceDefaultItem {
   >;
 
   /**
-   * Text field in *Form → Items*
+   * text field in *Form → Items*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: form.items[].text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  text: prismic.KeyTextField;
+  text: prismic.RichTextField;
 }
 
 /**

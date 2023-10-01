@@ -178,7 +178,7 @@ const VariationDefault = ({ primary, items }) => {
 
   }
   return (
-    <div>
+    <div className="container">
       <SectionHeading heading={primary.heading} />
       <form>
         {items.map((item, index) => {

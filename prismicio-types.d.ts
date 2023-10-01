@@ -516,6 +516,17 @@ export interface TextSplashSliceTextSplashWithBodyPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   body: prismic.RichTextField;
+
+  /**
+   * Direction field in *TextSplash → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: default
+   * - **API ID Path**: text_splash.primary.direction
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  direction: prismic.SelectField<"default" | "reverse", "filled">;
 }
 
 /**
@@ -547,10 +558,14 @@ export interface TextSplashSliceTextSplashWithBodyItem {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
+   * - **Default Value**: default
    * - **API ID Path**: text_splash.items[].button_type
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  button_type: prismic.SelectField<"1" | "2">;
+  button_type: prismic.SelectField<
+    "default" | "primary" | "secondary" | "alternate",
+    "filled"
+  >;
 }
 
 /**

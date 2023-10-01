@@ -116,7 +116,10 @@
           "config": {
             "label": "Button type",
             "placeholder": "",
-            "options": ["1", "2"]
+            "options": [
+              "1",
+              "2"
+            ]
           }
         }
       }
@@ -216,6 +219,18 @@
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
+        },
+        "direction": {
+          "type": "Select",
+          "config": {
+            "label": "Direction",
+            "placeholder": "",
+            "options": [
+              "default",
+              "reverse"
+            ],
+            "default_value": "default"
+          }
         }
       },
       "items": {
@@ -239,7 +254,13 @@
           "config": {
             "label": "Button type",
             "placeholder": "",
-            "options": ["1", "2"]
+            "options": [
+              "default",
+              "primary",
+              "secondary",
+              "alternate"
+            ],
+            "default_value": "default"
           }
         }
       }

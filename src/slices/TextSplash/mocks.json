@@ -55,6 +55,27 @@
 				"__TYPE__": "FieldContent",
 				"value": "none",
 				"type": "Select"
+			},
+			"image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+					"width": 4480,
+					"height": 4480
+				},
+				"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e?rect=0%2C0%2C4480%2C4480&w=384&h=384",
+				"width": 384,
+				"height": 384,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"thumbnails": {}
 			}
 		},
 		"items": [
@@ -83,7 +104,7 @@
 						"button_type",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "2",
+							"value": "1",
 							"type": "Select"
 						}
 					]
@@ -114,7 +135,7 @@
 						"button_type",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "2",
+							"value": "1",
 							"type": "Select"
 						}
 					]
@@ -145,7 +166,7 @@
 						"button_type",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "2",
+							"value": "1",
 							"type": "Select"
 						}
 					]
@@ -231,6 +252,11 @@
 						}
 					}
 				]
+			},
+			"direction": {
+				"__TYPE__": "FieldContent",
+				"value": "reverse",
+				"type": "Select"
 			}
 		},
 		"items": [
@@ -259,7 +285,7 @@
 						"button_type",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "2",
+							"value": "default",
 							"type": "Select"
 						}
 					]

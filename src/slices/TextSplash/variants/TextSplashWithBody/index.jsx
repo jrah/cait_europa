@@ -3,7 +3,10 @@ import styles from "./index.module.scss";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from '@prismicio/next'
 import clsx from "clsx";
-const VariationTextSplashWithBody = ({ primary }) => {
+import { PrismicLink } from "@prismicio/react";
+
+const VariationTextSplashWithBody = ({ primary, items }) => {
+    console.log(items)
     return (
         <div className={clsx(styles.container, "container mx-auto py-24")}>
             <div className={styles["two-column"]}>
@@ -15,7 +18,7 @@ const VariationTextSplashWithBody = ({ primary }) => {
                     <div className={styles["heading-variant-default"]}>
                         <PrismicRichText field={primary.heading} components={{
                             heading2: ({ children }) => (
-                                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-slate-800">
                                     {children}
                                 </h2>
                             ),
@@ -48,10 +51,29 @@ const VariationTextSplashWithBody = ({ primary }) => {
                             ),
                         }}
                     />
+                    <div>{listButtons(items)}</div>
+
                 </div>
             </div>
         </div>
     )
+}
+
+function listButtons(buttons) {
+    if (!buttons) return null;
+    const filterButtonsWithText = buttons.filter(button => button.button_text !== null)
+    return filterButtonsWithText.map((button, index) => {
+        const { button_text, button_link } = button
+        return (
+            <PrismicLink
+                field={button_link}
+                className={clsx("button-alternate", styles.button, styles["button-alternate"])}
+                key={index}
+            >
+                {button_text} →
+            </PrismicLink>
+        );
+    })
 }
 
 export default VariationTextSplashWithBody

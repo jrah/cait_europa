@@ -14,3 +14,13 @@ export default async function Home({ params }) {
     </main>
   )
 }
+
+export async function generateMetadata() {
+  const client = createClient();
+  const page = await client.getByUID("home", "home");
+  const { meta_description, meta_title } = page.data;
+  return {
+    title: meta_title,
+    meta_description: meta_description
+  };
+}

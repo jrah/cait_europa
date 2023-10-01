@@ -14,8 +14,9 @@ export default function Navigation({ buttons }) {
 }
 
 function listButtons(buttons) {
-  if (!buttons) return null
-  return buttons.map((button, index) => {
+  if (!buttons) return nul;
+  const filterButtonsWithText = buttons.filter(button => button.button_text !== null)
+  return filterButtonsWithText.map((button, index) => {
     const { button_text, button_link } = button
     return (
       <PrismicLink

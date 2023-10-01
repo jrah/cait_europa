@@ -119,7 +119,7 @@ function List({ items }) {
   const listItems = items.map((item, index) => {
     return (
       <div key={index} className={`${index}-item`}>
-        <PrismicLink field={item.button_link} className="button-primary button">{item.button_text}</PrismicLink>
+        <PrismicLink field={item.button_link} className={clsx("button-primary button", styles)}>{item.button_text}</PrismicLink>
       </div>
     );
   });

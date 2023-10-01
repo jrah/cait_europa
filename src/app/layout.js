@@ -18,6 +18,7 @@ const globalSettings = await client.getSingle("global")
 const {
   navigation_image,
   buttons,
+  background_color
 } = globalSettings.data || {};
 console.log(globalSettings)
 export default function RootLayout({ children }) {
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {globalSettings ? <Navigation buttons={buttons} navigationImage={navigation_image} /> : null}
+        {globalSettings ? <Navigation buttons={buttons} navigationImage={navigation_image} backgroundColor={background_color} /> : null}
         {children}
         <PrismicPreview repositoryName={cait} />
       </body>

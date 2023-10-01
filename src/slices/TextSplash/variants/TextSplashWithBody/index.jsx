@@ -2,8 +2,6 @@ import React from "react"
 import styles from "./index.module.scss";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from '@prismicio/next'
-
-import Image from "next/image";
 import clsx from "clsx";
 const VariationTextSplashWithBody = ({ primary }) => {
     return (

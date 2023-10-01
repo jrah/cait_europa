@@ -30,7 +30,6 @@ const VariationComponent = ({ data }) => {
 };
 
 const SectionHeading = ({ heading }) => {
-  console.log(heading)
   const components = {
     heading1: ({ children }) => (
       <SliceHeading

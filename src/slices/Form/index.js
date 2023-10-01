@@ -5,7 +5,8 @@
  */
 
 import SliceSection from "@/components/slices/SliceSection";
-
+import { PrismicRichText } from "@prismicio/react";
+import SliceHeading from "@/components/slices/SliceHeading";
 const Form = ({ slice, context }) => {
   return (
     <SliceSection
@@ -27,6 +28,57 @@ const VariationComponent = ({ data }) => {
   }
   return <VariationDefault primary={primary} items={items} />;
 };
+
+const SectionHeading = ({ heading }) => {
+  console.log(heading)
+  const components = {
+    heading1: ({ children }) => (
+      <SliceHeading
+        className="primary-text-color font-bold leading-tight"
+        cssModuleElement={clsx(styles.h1, styles.heading)}
+        isPageHeadline={primary.page_headline}
+      >
+        {children}
+      </SliceHeading>
+    ),
+    heading2: ({ children }) => (
+      <h2 className=" primary-text-color text-6xl font-bold tracking-wide">
+        {children}
+      </h2>
+    ),
+    heading3: ({ children }) => (
+      <h3 className=" primary-text-color text-5xl font-bold tracking-wide">
+        {children}
+      </h3>
+    ),
+    heading4: ({ children }) => (
+      <h4 className=" primary-text-color text-4xl font-bold tracking-wide">
+        {children}
+      </h4>
+    ),
+    label: ({ node, children, key }) => {
+      if (node.data.label === "h1-break") {
+        return (
+          <span
+            key={key}
+            className={`${node.data.label.replace("-break", "")} block`}
+          >
+            {children}
+          </span>
+        );
+      }
+      return (
+        <span
+          key={key}
+          className={`${node.data.label.replace("-break", "")} block`}
+        >
+          {children}
+        </span>
+      );
+    },
+  };
+  return <PrismicRichText field={heading} components={components} />
+}
 
 const VariationDefault = ({ primary, items }) => {
 
@@ -100,6 +152,7 @@ const VariationDefault = ({ primary, items }) => {
   }
   return (
     <div>
+      <SectionHeading heading={primary.heading} />
       <form>
         {items.map((item, index) => {
           const FormType = formTypes[formTypeSantize(item.type)];

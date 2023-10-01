@@ -105,7 +105,7 @@ const VariationDefault = ({ primary, items }) => {
   };
 
   const ComboBox = ({ label, ...props }) => {
-    const { type, extended, children } = props
+    const { extended, children } = props
     console.log(children)
     return (
       <div className="form-item">

@@ -43,19 +43,19 @@ const SectionHeading = ({ heading }) => {
       </SliceHeading>
     ),
     heading2: ({ children }) => (
-      <h2 className=" primary-text-color text-6xl font-bold tracking-wide">
+      <h2 className=" primary-text-color text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         {children}
       </h2>
     ),
     heading3: ({ children }) => (
-      <h3 className=" primary-text-color text-5xl font-bold tracking-wide">
+      <h2 className=" primary-text-color text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         {children}
-      </h3>
+      </h2>
     ),
     heading4: ({ children }) => (
-      <h4 className=" primary-text-color text-4xl font-bold tracking-wide">
+      <h2 className=" primary-text-color text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         {children}
-      </h4>
+      </h2>
     ),
     label: ({ node, children, key }) => {
       if (node.data.label === "h1-break") {
@@ -186,7 +186,9 @@ const VariationDefault = ({ primary, items }) => {
   }
   return (
     <div className="container">
-      <SectionHeading heading={primary.heading} />
+      <div className="mb-6">
+        <SectionHeading heading={primary.heading} />
+      </div>
       <form className="grid gap-8">
         {items.map((item, index) => {
           const FormType = formTypes[formTypeSantize(item.type)];
@@ -198,7 +200,7 @@ const VariationDefault = ({ primary, items }) => {
         })}
 
       </form>
-    </div>
+    </div >
   );
 };
 

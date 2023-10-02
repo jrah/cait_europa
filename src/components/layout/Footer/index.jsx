@@ -4,10 +4,9 @@ import { clsx } from "clsx";
 import { PrismicImage } from "@prismicio/react";
 export default function Footer({ ...props }) {
   const { notice, navigationImage } = props;
-  console.log(notice)
   return (
     <div className={clsx("container py-12", styles.frame)}>
-      <span className={styles.notice}>{notice}</span>
+      <span className={styles.notice}> {notice}</span>
       <PrismicImage field={navigationImage} width="150" height="150" />
 
     </div>

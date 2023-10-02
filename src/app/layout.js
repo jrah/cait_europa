@@ -4,7 +4,12 @@ import { PrismicPreview } from '@prismicio/next'
 import { cait, createClient } from '@/prismicio'
 import Navigation from "@/components/layout/navigation";
 import Footer from '@/components/layout/Footer';
-const inter = Inter({ subsets: ['latin'] })
+
+// // If loading a variable font, you don't need to specify the font weight
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -24,7 +29,8 @@ const {
 } = globalSettings.data || {}
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
+      <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
       <body>
         {globalSettings ? <Navigation buttons={buttons} navigationImage={navigation_image} backgroundColor={background_color} /> : null}
         {children}

@@ -5,7 +5,7 @@ import styles from "./index.module.scss";
 import SliceSection from "@/components/slices/SliceSection";
 import { PrismicNextImage } from '@prismicio/next'
 import clsx from "clsx";
-import VariationTextSplashWithBody from "./variants/textSplashWithBody";
+import VariationTextSplashWithBody from "./variants/TextSplashWithBody";
 /**
  * Props for `TextSplash`.
  */

@@ -3,7 +3,7 @@ import { PrismicRichText, PrismicLink } from "@prismicio/react";
 import SliceHeading from "@/components/slices/SliceHeading";
 import styles from "./index.module.scss";
 import SliceSection from "@/components/slices/SliceSection";
-import Image from "next/image";
+import { PrismicNextImage } from '@prismicio/next'
 import clsx from "clsx";
 import VariationTextSplashWithBody from "./variants/textSplashWithBody";
 /**
@@ -107,7 +107,7 @@ const VariationDefault = ({ primary, items }) => {
           />
           <List items={items} />
         </div>
-        <Image src={primary.image.url} alt={primary.image.alt} width={500} height={500} className={styles.image} />
+        <PrismicNextImage field={primary.image} width={500} height={500} className={styles.image} />
       </div>
     </div>
   );

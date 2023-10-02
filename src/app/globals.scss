@@ -6,6 +6,7 @@
   @apply bg-slate-700;
   @apply text-white;
   @apply rounded-[0.5rem];
+
   &:hover {
     background-color: "#fab700";
     @apply text-white;
@@ -14,7 +15,7 @@
 }
 .button {
   @apply py-3;
-  @apply px-3;
+  @apply px-7;
 }
 
 .container {

@@ -7,6 +7,8 @@
 import SliceSection from "@/components/slices/SliceSection";
 import { PrismicRichText } from "@prismicio/react";
 import SliceHeading from "@/components/slices/SliceHeading";
+import styles from "./index.module.scss";
+import clsx from "clsx";
 const Form = ({ slice, context }) => {
   return (
     <SliceSection
@@ -85,8 +87,10 @@ const VariationDefault = ({ primary, items }) => {
     return (
       <div className="form-item">
         <label htmlFor={label} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
-        <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          name={label} id={label} type={type} placeholder={children} />
+        <div className="mt-2">
+          <input className="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            name={label} id={label} type={type} placeholder={children} />
+        </div>
       </div>
     )
   }
@@ -106,20 +110,21 @@ const VariationDefault = ({ primary, items }) => {
 
   const ComboBox = ({ label, ...props }) => {
     const { extended, children } = props
-    console.log(children)
     return (
       <div className="form-item">
         <label htmlFor={label} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
-        <select
-          id={label}
-          name={label}
-          autoComplete={`${label}-name`}
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-        ><PrismicRichText field={extended} components={{
-          list: ({ children }) => children,
-          listItem: ({ children }) => <option>{children}</option>
-        }} />
-        </select>
+        <div className="mt-2">
+          <select
+            id={label}
+            name={label}
+            autoComplete={`${label}-name`}
+
+            className={clsx("px-3 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6", styles.select)}
+          ><PrismicRichText field={extended} components={{
+            list: ({ children }) => children,
+            listItem: ({ children }) => <option>{children}</option>
+          }} />
+          </select></div>
       </div>
     );
   };
@@ -128,21 +133,23 @@ const VariationDefault = ({ primary, items }) => {
     return (
       <div className="form-item">
         <label htmlFor={label}>{children}</label>
-        <textarea
-          id={label}
-          name={label}
-          rows={3}
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          defaultValue={''}
-        />
-        <p className="mt-3 text-sm leading-6 text-gray-600">{children}</p>
+
+        <div className="mt-2">
+          <p className="mb-3 text-sm leading-6 text-gray-600">{children}</p>
+          <textarea
+            id={label}
+            name={label}
+            rows={3}
+            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            defaultValue={''}
+          /></div>
       </div>
     );
   };
 
   const Submit = ({ children }) => {
     return (
-      <div className="form-item">
+      <div className="form-item mt-6">
         <button
           type="submit"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -180,7 +187,7 @@ const VariationDefault = ({ primary, items }) => {
   return (
     <div className="container">
       <SectionHeading heading={primary.heading} />
-      <form>
+      <form className="grid gap-8">
         {items.map((item, index) => {
           const FormType = formTypes[formTypeSantize(item.type)];
           if (FormType) {

@@ -2,7 +2,7 @@ import './globals.scss'
 import { Inter } from 'next/font/google'
 import { PrismicPreview } from '@prismicio/next'
 import { cait, createClient } from '@/prismicio'
-import Navigation from "@/components/layout/navigation";
+import Navigation from "@/components/layout/Navigation";
 import Footer from '@/components/layout/Footer';
 
 // // If loading a variable font, you don't need to specify the font weight

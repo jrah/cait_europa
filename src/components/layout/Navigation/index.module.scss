@@ -1,7 +1,11 @@
-@import "src/app/utils.scss";
+@import "~src/app/utils.scss";
 
 .container {
-  @apply py-6;
+  @apply pt-6;
+  @apply pb-12;
+  @include mq(tablet-landscape-up) {
+    @apply py-6;
+  }
   display: flex;
   justify-content: space-between;
 }

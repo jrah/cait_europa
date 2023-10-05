@@ -3,12 +3,13 @@
  * @typedef {import("@prismicio/react").SliceComponentProps<FormSlice>} FormProps
  * @param {FormProps}
  */
-
+"use client"
 import SliceSection from "@/components/slices/SliceSection";
 import { PrismicRichText } from "@prismicio/react";
 import SliceHeading from "@/components/slices/SliceHeading";
 import styles from "./index.module.scss";
 import clsx from "clsx";
+import { useState } from "react";
 const Form = ({ slice, context }) => {
   return (
     <SliceSection
@@ -82,7 +83,17 @@ const SectionHeading = ({ heading }) => {
 }
 
 const VariationDefault = ({ primary, items }) => {
+  const [isProcessing, setIsProcessing] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
+  const handleSubmit = () => {
+    setIsProcessing(true)
+    setTimeout(() => {
+      setIsProcessing(false)
+      setIsSubmitted(true)
+    }, 2000)
+
+  }
   const BaseInput = ({ label, children, type }) => {
     return (
       <div className="form-item">
@@ -147,16 +158,37 @@ const VariationDefault = ({ primary, items }) => {
     );
   };
 
+  const FormStatusIcon = ({ isSubmitted, isProcessing }) => {
+
+    if (isProcessing) {
+      return <svg class="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    }
+    if (isSubmitted) {
+      return <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 stroke-green-300">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+      </svg>
+    }
+  }
+
+
   const Submit = ({ children }) => {
     return (
-      <div className="form-item mt-6">
+      <div className="form-item mt-6 flex items-center gap-3">
         <button
           type="submit"
-          className="button-primary button px-6"
+          className="button-primary button px-6 disabled:cursor-not-allowed disabled:opacity-75"
+          disabled={isProcessing || isSubmitted ? true : false}
+          onClick={handleSubmit}
         >
-          {children}
+          <div className="flex items-center gap-6">
+            <span>{children}</span>
+          </div>
         </button>
-      </div>
+        <FormStatusIcon isSubmitted={isSubmitted} isProcessing={isProcessing} />
+      </div >
     );
   };
 
@@ -198,7 +230,6 @@ const VariationDefault = ({ primary, items }) => {
             return <div key={index}>Unknown Form Element: {formTypeSantize(item.type)}</div>;
           }
         })}
-
       </form>
     </div >
   );

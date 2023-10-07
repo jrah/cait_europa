@@ -24,6 +24,17 @@
 						}
 					}
 				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation eiusmod elit adipisicing labore adipisicing quis culpa sit. Pariatur commodo exercitation ex enim cupidatat ullamco anim."
+						}
+					}
+				]
 			}
 		},
 		"items": [

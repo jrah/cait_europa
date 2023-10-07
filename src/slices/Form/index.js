@@ -10,6 +10,7 @@ import SliceHeading from "@/components/slices/SliceHeading";
 import styles from "./index.module.scss";
 import clsx from "clsx";
 import { useState } from "react";
+import { PrismicNextImage } from "@prismicio/next";
 const Form = ({ slice, context }) => {
   return (
     <SliceSection
@@ -194,6 +195,16 @@ const VariationDefault = ({ primary, items }) => {
       </div >
     );
   };
+  const Body = ({ children }) => {
+    return (
+      <PrismicRichText field={children} components={{
+        image: ({ node }) =>
+        (
+          <PrismicNextImage field={node} className="mb-6" />
+        )
+      }} />
+    )
+  }
 
   const formTypes = {
     text: TextInput,
@@ -220,25 +231,34 @@ const VariationDefault = ({ primary, items }) => {
     return getID.replace(/\s/g, '').toLowerCase()
 
   }
-
+  const isExistsBody = (context) => {
+    return context.length > 1
+  }
   return (
     <div className="container">
       <div className="mb-6">
         <SectionHeading heading={primary.heading} />
-        <div className="mt-2"><PrismicRichText field={primary.sub_heading} components={{
-          paragraph: ({ children }) => <p className="mt-6 paragraph-heading">{children}</p>,
-        }} /></div>
+        <div className="mt-2 max-w-2xl">
+          <PrismicRichText field={primary.sub_heading} components={{
+            paragraph: ({ children }) => <p className="paragraph-heading">{children}</p>,
+          }} />
+        </div>
       </div>
-      <form className="grid gap-8">
-        {items.map((item, index) => {
-          const FormType = formTypes[formTypeSantize(item.type)];
-          if (FormType) {
-            return <FormType key={index} label={formInputID(item.text)} type={formTypeSantize(item.type)} extended={richTextGetExtended(item.text)}>{richTextGetLabel(item.text)}</FormType>;
-          } else {
-            return <div key={index}>Unknown Form Element: {formTypeSantize(item.type)}</div>;
-          }
-        })}
-      </form>
+      <div className={isExistsBody(primary.body) && "grid grid-cols-7 gap-20"}>
+        <div className="col-span-4">
+          <form className="grid gap-6">
+            {items.map((item, index) => {
+              const FormType = formTypes[formTypeSantize(item.type)];
+              if (FormType) {
+                return <FormType key={index} label={formInputID(item.text)} type={formTypeSantize(item.type)} extended={richTextGetExtended(item.text)}>{richTextGetLabel(item.text)}</FormType>;
+              } else {
+                return <div key={index}>Unknown Form Element: {formTypeSantize(item.type)}</div>;
+              }
+            })}
+          </form>
+        </div>
+        {isExistsBody(primary.body) && <div className="col-span-3 prose"><Body>{primary.body}</Body></div>}
+      </div>
     </div >
   );
 };

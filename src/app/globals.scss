@@ -25,3 +25,7 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.paragraph-heading {
+  @apply text-lg leading-8 text-gray-600;
+}

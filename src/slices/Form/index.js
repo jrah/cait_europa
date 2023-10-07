@@ -146,7 +146,6 @@ const VariationDefault = ({ primary, items }) => {
         <label htmlFor={label}>{children}</label>
 
         <div className="mt-2">
-          <p className="mb-3 text-sm leading-6 text-gray-600">{children}</p>
           <textarea
             id={label}
             name={label}
@@ -156,6 +155,10 @@ const VariationDefault = ({ primary, items }) => {
           /></div>
       </div>
     );
+  };
+
+  const Paragraph = ({ children }) => {
+    return <p>{children}</p>
   };
 
   const FormStatusIcon = ({ isSubmitted, isProcessing }) => {
@@ -198,6 +201,7 @@ const VariationDefault = ({ primary, items }) => {
     submit: Submit,
     combobox: ComboBox,
     textarea: TextArea,
+    paragraph: Paragraph,
   }
   const formTypeSantize = (type) => {
     return type.replace(/\s/g, '').toLowerCase()
@@ -216,10 +220,14 @@ const VariationDefault = ({ primary, items }) => {
     return getID.replace(/\s/g, '').toLowerCase()
 
   }
+
   return (
     <div className="container">
       <div className="mb-6">
         <SectionHeading heading={primary.heading} />
+        <div className="mt-2"><PrismicRichText field={primary.sub_heading} components={{
+          paragraph: ({ children }) => <p className="mt-6 paragraph-heading">{children}</p>,
+        }} /></div>
       </div>
       <form className="grid gap-8">
         {items.map((item, index) => {

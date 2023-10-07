@@ -14,7 +14,6 @@ function SliceHeading({
 }) {
   const HeadingTag = isPageHeadline ? "h1" : "h2";
   const cssClasses = className ? `${className} ${styles.type}` : styles.type;
-  console.log(cssModuleElement)
   return <HeadingTag className={clsx(cssClasses, cssModuleElement)} >{children}</HeadingTag>;
 }
 

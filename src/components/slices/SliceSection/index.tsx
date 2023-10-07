@@ -25,7 +25,6 @@ function SliceSection({
       : styles["vertical-spacing-standard"];
   };
 
-  console.log(backgroundColor)
   const CSSVariableReferenceValue = backgroundColor ? {
     "--slice-background-color": backgroundColor
   } : {}

@@ -6,7 +6,6 @@ import clsx from "clsx";
 import { PrismicLink } from "@prismicio/react";
 
 const VariationTextSplashWithBody = ({ primary, items }) => {
-    console.log(items)
     return (
         <div className={clsx(styles.container, "container mx-auto py-24")}>
             <div className={styles["two-column"]}>

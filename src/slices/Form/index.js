@@ -244,7 +244,7 @@ const VariationDefault = ({ primary, items }) => {
           }} />
         </div>
       </div>
-      <div className={isExistsBody(primary.body) && "grid grid-cols-7 gap-20"}>
+      <div className={isExistsBody(primary.body) && styles["layout"]}>
         <div className="col-span-4">
           <form className="grid gap-6">
             {items.map((item, index) => {

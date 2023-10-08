@@ -3,14 +3,46 @@
  * @typedef {import("@prismicio/react").SliceComponentProps<GridListSlice>} GridListProps
  * @param {GridListProps}
  */
-const GridList = ({ slice }) => {
+
+import React from "react";
+import styles from "./index.module.scss";
+import SliceSection from "@/components/slices/SliceSection";
+import VariationGridListWithPricing from "./variants/GridListWithPricing";
+import { PrismicRichText } from "@prismicio/react";
+const GridList = ({ slice, context }) => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
+    <SliceSection
+      contextArray={context}
+      sliceId={slice.id}
+      sliceType={slice.slice_type}
+      sliceVariation={slice.variation}
+      noContainer={slice.variation ? "textSplashWithForm" : true}
+      classes={styles["background-color"]}
+      backgroundColor={slice.primary.background_color}
     >
-      Placeholder component for grid_list (variation: {slice.variation}) Slices
-    </section>
+      <VariationComponent data={slice} />
+    </SliceSection>
+  );
+};
+
+const VariationComponent = ({ data }) => {
+  const { primary, items, variation } = data;
+  if (variation === "gridListWithPricingTable") {
+    return <VariationGridListWithPricing primary={primary} items={items} />;
+  }
+  if (variation === "default") {
+    return <VariationDefault primary={primary} items={items} />;
+  }
+  return <VariationDefault primary={primary} items={items} />;
+};
+
+const VariationDefault = ({ primary, items }) => {
+
+  return (
+    <div>
+      <PrismicRichText field={primary.heading} />
+      dfsgerdsf
+    </div>
   );
 };
 

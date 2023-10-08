@@ -349,6 +349,21 @@ type FormSliceVariation = FormSliceDefault;
 export type FormSlice = prismic.SharedSlice<"form", FormSliceVariation>;
 
 /**
+ * Primary content in *GridList → Primary*
+ */
+export interface GridListSliceDefaultPrimary {
+  /**
+   * Heading field in *GridList → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+}
+
+/**
  * Default variation for GridList Slice
  *
  * - **API ID**: `default`
@@ -357,14 +372,120 @@ export type FormSlice = prismic.SharedSlice<"form", FormSliceVariation>;
  */
 export type GridListSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<GridListSliceDefaultPrimary>,
   never
 >;
 
 /**
+ * Primary content in *GridList → Primary*
+ */
+export interface GridListSliceGridListWithPricingTablePrimary {
+  /**
+   * Heading field in *GridList → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Sub heading field in *GridList → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.RichTextField;
+
+  /**
+   * Background image top field in *GridList → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.primary.background_image_top
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image_top: prismic.ImageField<never>;
+
+  /**
+   * Background color field in *GridList → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  background_color: prismic.ColorField;
+}
+
+/**
+ * Primary content in *GridList → Items*
+ */
+export interface GridListSliceGridListWithPricingTableItem {
+  /**
+   * Heading field in *GridList → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.items[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body field in *GridList → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.items[].body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Button text field in *GridList → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.items[].button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button link field in *GridList → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.items[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+}
+
+/**
+ * GridListWithPricingTable variation for GridList Slice
+ *
+ * - **API ID**: `gridListWithPricingTable`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GridListSliceGridListWithPricingTable =
+  prismic.SharedSliceVariation<
+    "gridListWithPricingTable",
+    Simplify<GridListSliceGridListWithPricingTablePrimary>,
+    Simplify<GridListSliceGridListWithPricingTableItem>
+  >;
+
+/**
  * Slice variation for *GridList*
  */
-type GridListSliceVariation = GridListSliceDefault;
+type GridListSliceVariation =
+  | GridListSliceDefault
+  | GridListSliceGridListWithPricingTable;
 
 /**
  * GridList Shared Slice
@@ -728,8 +849,12 @@ declare module "@prismicio/client" {
       FormSliceVariation,
       FormSliceDefault,
       GridListSlice,
+      GridListSliceDefaultPrimary,
+      GridListSliceGridListWithPricingTablePrimary,
+      GridListSliceGridListWithPricingTableItem,
       GridListSliceVariation,
       GridListSliceDefault,
+      GridListSliceGridListWithPricingTable,
       TextSplashSlice,
       TextSplashSliceDefaultPrimary,
       TextSplashSliceDefaultItem,

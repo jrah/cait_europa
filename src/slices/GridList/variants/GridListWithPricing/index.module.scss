@@ -38,6 +38,6 @@
 
 .background-image {
   @apply absolute w-full inset-x-0;
-  top: -20rem;
   z-index: -1;
+  bottom: 100%;
 }

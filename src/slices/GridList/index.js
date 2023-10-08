@@ -11,7 +11,6 @@ import VariationGridListWithPricing from "./variants/GridListWithPricing";
 import { PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
 const GridList = ({ slice, context }) => {
-  console.log(slice.primary.background_image_top ? "dfg" : "eds")
   return (
     <SliceSection
       contextArray={context}
@@ -19,7 +18,7 @@ const GridList = ({ slice, context }) => {
       sliceType={slice.slice_type}
       sliceVariation={slice.variation}
       noContainer={slice.variation ? "textSplashWithForm" : true}
-      classes={clsx(styles["background-color"], { "relative mt-48 pt-0": slice.primary.background_image_top })}
+      classes={clsx(styles["background-color"], { [styles["has-background-image"]]: slice.primary.background_image_top })}
       backgroundColor={slice.primary.background_color}
     >
       <VariationComponent data={slice} />

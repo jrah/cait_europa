@@ -245,17 +245,19 @@ const VariationDefault = ({ primary, items }) => {
         </div>
       </div>
       <div className={isExistsBody(primary.body) && styles["layout"]}>
-        <form className="grid gap-6">
-          {items.map((item, index) => {
-            const FormType = formTypes[formTypeSantize(item.type)];
-            if (FormType) {
-              return <FormType key={index} label={formInputID(item.text)} type={formTypeSantize(item.type)} extended={richTextGetExtended(item.text)}>{richTextGetLabel(item.text)}</FormType>;
-            } else {
-              return <div key={index}>Unknown Form Element: {formTypeSantize(item.type)}</div>;
-            }
-          })}
-        </form>
-        {isExistsBody(primary.body) && <Body>{primary.body}</Body>}
+        <div className="col-span-4">
+          <form className="grid gap-6">
+            {items.map((item, index) => {
+              const FormType = formTypes[formTypeSantize(item.type)];
+              if (FormType) {
+                return <FormType key={index} label={formInputID(item.text)} type={formTypeSantize(item.type)} extended={richTextGetExtended(item.text)}>{richTextGetLabel(item.text)}</FormType>;
+              } else {
+                return <div key={index}>Unknown Form Element: {formTypeSantize(item.type)}</div>;
+              }
+            })}
+          </form>
+        </div>
+        {isExistsBody(primary.body) && <div className="col-span-3 prose"><Body>{primary.body}</Body></div>}
       </div>
     </div >
   );

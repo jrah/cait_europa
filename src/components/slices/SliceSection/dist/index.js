@@ -6,11 +6,7 @@ var index_module_scss_1 = require("./index.module.scss");
 exports.sliceSectionStyles = index_module_scss_1["default"];
 function SliceSection(_a) {
     var children = _a.children, contextArray = _a.contextArray, sliceId = _a.sliceId, sliceVariation = _a.sliceVariation, sliceType = _a.sliceType, spacingDefault = _a.spacingDefault, spacingTop = _a.spacingTop, noContainer = _a.noContainer, backgroundColor = _a.backgroundColor, classes = _a.classes;
-    var firstSlice = contextArray[0];
-    var lastSlice = contextArray[contextArray.length - 1];
     var sliceClass = function () {
-        if (sliceId === firstSlice.id && sliceId != lastSlice.id)
-            return false;
         return spacingDefault
             ? index_module_scss_1["default"]["vertical-spacing-" + spacingDefault]
             : index_module_scss_1["default"]["vertical-spacing-standard"];

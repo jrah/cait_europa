@@ -7,7 +7,7 @@ import { PrismicLink } from "@prismicio/react";
 
 const VariationTextSplashWithBody = ({ primary, items }) => {
     return (
-        <div className={clsx(styles.container, "container mx-auto py-24")}>
+        <div className={clsx(styles.container, "container mx-auto")}>
             <div className={styles["two-column"]}>
                 <PrismicNextImage field={primary.image} width={384}
                     height={384} className={styles.image}

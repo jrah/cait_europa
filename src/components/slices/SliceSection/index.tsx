@@ -16,10 +16,7 @@ function SliceSection({
 }: {
   children: ReactNode;
 }) {
-  const [firstSlice] = contextArray;
-  const lastSlice = contextArray[contextArray.length - 1];
   const sliceClass = () => {
-    if (sliceId === firstSlice.id && sliceId != lastSlice.id) return false;
     return spacingDefault
       ? styles[`vertical-spacing-${spacingDefault}`]
       : styles["vertical-spacing-standard"];

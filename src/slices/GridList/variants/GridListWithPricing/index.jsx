@@ -1,12 +1,12 @@
 import React from "react"
 import styles from "./index.module.scss";
-import { PrismicRichText, PrismicLink } from "@prismicio/react";
+import { PrismicRichText, PrismicLink, PrismicImage } from "@prismicio/react";
 import clsx from "clsx";
-
 const VariationGridListWithPricing = ({ primary, items }) => {
     const { heading, sub_heading, background_image_top, background_color } = primary
     return (
         <div className="container">
+            <PrismicImage field={background_image_top} className={styles["background-image"]} />
             <div className="mb-16 text-center">
                 <PrismicRichText field={heading} components={{
                     heading2: ({ children }) => (

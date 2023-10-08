@@ -6,8 +6,8 @@
   flex-direction: column;
   @include mq(tablet-landscape-up) {
     column-gap: 2.5rem;
-    display: flex;
     align-items: center;
+    flex-direction: row;
   }
   .reverse {
     flex-direction: row-reverse;

@@ -16,3 +16,15 @@
 .heading {
   @apply mb-6;
 }
+
+.image {
+  .tile:hover & {
+    scale: 1.15;
+    transition: scale 1s;
+  }
+  @apply absolute inset-0 -z-10 h-full w-full object-cover;
+}
+
+.tile {
+  @apply relative isolate overflow-hidden;
+}

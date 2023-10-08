@@ -6,8 +6,8 @@ const VariationGridListWithTiles = ({ primary, items }) => {
     const { heading, sub_heading } = primary
     return (
         <div className="container">
-            <div className="flex gap-4">
-                <div>
+            <div className={styles.layout}>
+                <div className={styles.heading}>
                     <PrismicRichText field={heading} components={{
                         heading2: ({ children }) => (
                             <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">{children}</h2>
@@ -48,7 +48,7 @@ function List({ items }) {
         );
     });
     return (
-        <div className="grid grid-cols-3 gap-4 p-4 bg-gray-50 rounded-sm">{listItems}</div>
+        <div className={styles["list-layout"]}>{listItems}</div>
     )
 }
 

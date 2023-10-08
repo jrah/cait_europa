@@ -8,6 +8,7 @@ $sizes: (160px, 270px);
 .vertical-spacing {
   &-standard {
     padding-top: #{pxem(nth($sizes, 1))};
+    padding-bottom: #{pxem(nth($sizes, 1))};
     @include mq(tablet-portrait-up) {
       padding-top: #{pxem(nth($sizes, 1), 0.5)};
       padding-bottom: #{pxem(nth($sizes, 1), 0.5)};

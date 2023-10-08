@@ -74,7 +74,7 @@ function List({ items }) {
                 </div>
                 <PrismicLink
                     field={item.button_link}
-                    className={"button button-primary mt-6"}
+                    className={"button button-primary mt-12"}
                     key={index}
                 >
                     {item.button_text}

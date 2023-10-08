@@ -7,8 +7,21 @@ const VariationGridListWithPricing = ({ primary, items }) => {
     const { heading, sub_heading, background_image_top, background_color } = primary
     return (
         <div className="container">
-            <PrismicRichText field={heading} />
-            <PrismicRichText field={sub_heading} />
+            <div className="mb-16 text-center">
+                <PrismicRichText field={heading} components={{
+                    heading2: ({ children }) => (
+                        <h2 className="mt-6">{children}</h2>
+                    ),
+                    paragraph: ({ children }) => (
+                        <p className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">{children}</p>
+                    )
+                }} />
+                <PrismicRichText field={sub_heading} components={{
+                    paragraph: ({ children }) => (
+                        <p className="mt-6 max-w-2xl text-lg leading-8 mx-auto">{children}</p>
+                    )
+                }} />
+            </div>
             <List items={items} />
         </div>
     )
@@ -69,7 +82,7 @@ function List({ items }) {
         );
     });
     return (
-        <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">{listItems}</div>
+        <div className="mx-auto grid max-w-md grid-cols-1 gap-12 lg:max-w-4xl lg:grid-cols-2">{listItems}</div>
     )
 }
 

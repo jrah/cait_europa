@@ -481,11 +481,95 @@ export type GridListSliceGridListWithPricingTable =
   >;
 
 /**
+ * Primary content in *GridList → Primary*
+ */
+export interface GridListSliceGridListWithTilesPrimary {
+  /**
+   * Heading field in *GridList → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Sub heading field in *GridList → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *GridList → Items*
+ */
+export interface GridListSliceGridListWithTilesItem {
+  /**
+   * Heading field in *GridList → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.items[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Image field in *GridList → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Description field in *GridList → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Tile link field in *GridList → Items*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_list.items[].tile_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  tile_link: prismic.LinkToMediaField;
+}
+
+/**
+ * GridListWithTiles variation for GridList Slice
+ *
+ * - **API ID**: `gridListWithTiles`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GridListSliceGridListWithTiles = prismic.SharedSliceVariation<
+  "gridListWithTiles",
+  Simplify<GridListSliceGridListWithTilesPrimary>,
+  Simplify<GridListSliceGridListWithTilesItem>
+>;
+
+/**
  * Slice variation for *GridList*
  */
 type GridListSliceVariation =
   | GridListSliceDefault
-  | GridListSliceGridListWithPricingTable;
+  | GridListSliceGridListWithPricingTable
+  | GridListSliceGridListWithTiles;
 
 /**
  * GridList Shared Slice
@@ -852,9 +936,12 @@ declare module "@prismicio/client" {
       GridListSliceDefaultPrimary,
       GridListSliceGridListWithPricingTablePrimary,
       GridListSliceGridListWithPricingTableItem,
+      GridListSliceGridListWithTilesPrimary,
+      GridListSliceGridListWithTilesItem,
       GridListSliceVariation,
       GridListSliceDefault,
       GridListSliceGridListWithPricingTable,
+      GridListSliceGridListWithTiles,
       TextSplashSlice,
       TextSplashSliceDefaultPrimary,
       TextSplashSliceDefaultItem,

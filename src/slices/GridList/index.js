@@ -8,6 +8,7 @@ import React from "react";
 import styles from "./index.module.scss";
 import SliceSection from "@/components/slices/SliceSection";
 import VariationGridListWithPricing from "./variants/GridListWithPricing";
+import VariationGridListWithTiles from "./variants/GridListWithTiles";
 import { PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
 const GridList = ({ slice, context }) => {
@@ -31,6 +32,9 @@ const VariationComponent = ({ data }) => {
   if (variation === "gridListWithPricingTable") {
     return <VariationGridListWithPricing primary={primary} items={items} />;
   }
+  if (variation === "gridListWithTiles") {
+    return <VariationGridListWithTiles primary={primary} items={items} />;
+  }
   if (variation === "default") {
     return <VariationDefault primary={primary} items={items} />;
   }
@@ -38,13 +42,13 @@ const VariationComponent = ({ data }) => {
 };
 
 const VariationDefault = ({ primary, items }) => {
-
+  console.log(primary.variation)
   return (
     <div>
       <PrismicRichText field={primary.heading} />
-      dfsgerdsf
     </div>
   );
 };
 
 export default GridList;
+

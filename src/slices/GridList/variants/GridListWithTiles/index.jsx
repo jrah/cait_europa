@@ -27,9 +27,9 @@ const VariationGridListWithTiles = ({ primary, items }) => {
 
 function List({ items }) {
     const listItems = items.map((item, index) => {
-        const { image, heading, description } = item
+        const { image, heading, description, tile_link } = item
         return (
-            <div key={index} className={`${index}-item relative isolate`}>
+            <PrismicLink field={tile_link} key={index} className={`${index}-item relative isolate`}>
                 <div className="z-50 relative pt-72 px-4 pb-6">
                     <PrismicRichText field={heading} components={{
                         heading3: ({ children }) => (
@@ -44,7 +44,7 @@ function List({ items }) {
                 </div>
                 <div className="bg-gradient-to-t from-gray-900 to-transparent  h-full w-full absolute inset-0 z-0"></div>
                 <PrismicImage field={image} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-            </div>
+            </PrismicLink>
         );
     });
     return (

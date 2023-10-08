@@ -30,7 +30,7 @@ const VariationGridListWithPricing = ({ primary, items }) => {
 function List({ items }) {
     const listItems = items.map((item, index) => {
         return (
-            <div key={index} className={`${index}-item bg-white rounded-lg p-12`}>
+            <div key={index} className={`${index}-item bg-white rounded-lg p-12 flex flex-col justify-between`}>
                 <PrismicRichText field={item.heading} components={{
                     heading3: ({ children }) => (
                         <h3 className="text-base font-semibold leading-7 text-indigo-600">{children}</h3>
@@ -72,7 +72,7 @@ function List({ items }) {
                 }} />
                 <PrismicLink
                     field={item.button_link}
-                    className={"button button-primary"}
+                    className={"button button-primary mt-6"}
                     key={index}
                 >
                     {item.button_text}

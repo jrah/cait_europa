@@ -22,7 +22,6 @@ const GridList = ({ slice, context }) => {
       classes={clsx(styles["background-color"], { [styles["has-background-image"]]: slice.primary.background_image_top })}
       backgroundColor={slice.primary.background_color}
     >
-      <span>{slice.variation}</span>
       <VariationComponent data={slice} />
     </SliceSection>
   );
@@ -43,10 +42,8 @@ const VariationComponent = ({ data }) => {
 };
 
 const VariationDefault = ({ primary, items }) => {
-  console.log(primary.variation)
   return (
     <div>
-      <span>{primary.variation}</span>
       <PrismicRichText field={primary.heading} />
     </div>
   );

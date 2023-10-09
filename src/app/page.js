@@ -4,6 +4,7 @@ import { components } from "@/slices";
 export default async function Home({ params }) {
   const client = createClient();
   const page = await client.getByUID("home", "home");
+  console.log(page.data.slices)
   return (
     <main>
       <SliceZone

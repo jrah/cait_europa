@@ -25,6 +25,24 @@ const VariationGridListWithTiles = ({ primary, items }) => {
     )
 }
 
+const CarouselActionNextIcon = (position) => {
+
+    return (
+        <div className={styles.next}>
+            <div className="relative inline-flex">
+                <span className={styles.pulse}>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-300"></span>
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth={0.5} className="w-16 h-16">
+                    <path strokeLinecap="round" strokeLinejoin="round" fill="rgb(96 165 250)" stroke="rgb(96 165 250)" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" fill="rgb(191 219 254)" stroke="rgb(191 219 254)" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
+                </svg>
+            </div>
+        </div>
+    )
+}
+
 function List({ items }) {
     const listItems = items.map((item, index) => {
         const { image, heading, description, tile_link } = item
@@ -48,7 +66,7 @@ function List({ items }) {
         );
     });
     return (
-        <div className={styles["list-layout"]}>{listItems}</div>
+        <div className={styles["list-layout"]}>{listItems}<PrismicLink> <CarouselActionNextIcon /></PrismicLink></div>
     )
 }
 

@@ -8,6 +8,7 @@
 
 .list-layout {
   @apply grid grid-cols-1 gap-4 p-4 bg-gray-50 rounded-sm;
+  @apply relative;
   @include mq(tablet-portrait-up) {
     @apply grid-cols-3;
   }
@@ -27,4 +28,20 @@
 
 .tile {
   @apply relative isolate overflow-hidden;
+}
+
+.next {
+  display: none;
+  @include mq(tablet-portrait-up) {
+    @apply absolute;
+    top: -25px;
+    right: -25px;
+    display: block;
+  }
+}
+
+.pulse {
+  @apply flex absolute h-3 w-3 -mt-1 -mr-1;
+  top: 10px;
+  right: 15px;
 }

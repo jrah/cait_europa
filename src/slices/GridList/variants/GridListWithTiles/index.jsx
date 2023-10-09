@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import styles from "./index.module.scss";
 import { PrismicRichText, PrismicLink, PrismicImage } from "@prismicio/react";
 import clsx from "clsx";
+import { PrismicNextImage } from "@prismicio/next"
 const VariationGridListWithTiles = ({ primary, items }) => {
     const { heading, sub_heading } = primary
     return (
@@ -73,7 +74,9 @@ function List({ items }) {
                     }} />
                 </div>
                 <div className="bg-gradient-to-t from-gray-900 to-transparent h-full w-full absolute inset-0 z-0"></div>
-                <PrismicImage field={image} className={clsx(styles.image)} />
+                <PrismicNextImage field={image} width={250}
+                    height={488} className={styles.image}
+                    imgixParams={{ fit: "crop", w: 256, h: 512 }} unoptimized={true} />
             </PrismicLink>
         );
     });

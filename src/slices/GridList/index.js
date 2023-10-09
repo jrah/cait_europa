@@ -45,6 +45,7 @@ const VariationDefault = ({ primary, items }) => {
   console.log(primary.variation)
   return (
     <div>
+      <span>{primary.variation}</span>
       <PrismicRichText field={primary.heading} />
     </div>
   );

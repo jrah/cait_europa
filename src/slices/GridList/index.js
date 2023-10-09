@@ -22,6 +22,7 @@ const GridList = ({ slice, context }) => {
       classes={clsx(styles["background-color"], { [styles["has-background-image"]]: slice.primary.background_image_top })}
       backgroundColor={slice.primary.background_color}
     >
+      <span>{slice.variation}</span>
       <VariationComponent data={slice} />
     </SliceSection>
   );

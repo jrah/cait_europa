@@ -1,4 +1,5 @@
-import React from "react"
+'use client'
+import React, { useState } from "react"
 import styles from "./index.module.scss";
 import { PrismicRichText, PrismicLink, PrismicImage } from "@prismicio/react";
 import clsx from "clsx";
@@ -25,10 +26,10 @@ const VariationGridListWithTiles = ({ primary, items }) => {
     )
 }
 
-const CarouselActionNextIcon = (position) => {
+const CarouselActionNextIcon = ({ onClick }) => {
 
     return (
-        <div className={styles.next}>
+        <div className={styles.next} onClick={onClick}>
             <div className="relative inline-flex">
                 <span className={styles.pulse}>
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -44,10 +45,21 @@ const CarouselActionNextIcon = (position) => {
 }
 
 function List({ items }) {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const showNextItem = () => {
+        if (currentIndex === items.length - 3) {
+            return setCurrentIndex(0)
+        }
+        return setCurrentIndex(currentIndex + 1)
+
+    }
+    const getVisibility = (itemIndex, stateIndex) => {
+        return itemIndex >= stateIndex && itemIndex < stateIndex + 3 ? styles["carousel-active"] : styles["carousel-hidden"]
+    }
     const listItems = items.map((item, index) => {
         const { image, heading, description, tile_link } = item
         return (
-            <PrismicLink field={tile_link} key={index} className={styles.tile}>
+            <PrismicLink field={tile_link} key={index} className={clsx(styles.tile, styles["carousel-item"], getVisibility(index, currentIndex))}>
                 <div className="z-50 relative pt-72 px-4 pb-6">
                     <PrismicRichText field={heading} components={{
                         heading3: ({ children }) => (
@@ -60,13 +72,13 @@ function List({ items }) {
                         )
                     }} />
                 </div>
-                <div className="bg-gradient-to-t from-gray-900 to-transparent  h-full w-full absolute inset-0 z-0"></div>
+                <div className="bg-gradient-to-t from-gray-900 to-transparent h-full w-full absolute inset-0 z-0"></div>
                 <PrismicImage field={image} className={clsx(styles.image)} />
             </PrismicLink>
         );
     });
     return (
-        <div className={styles["list-layout"]}>{listItems}<PrismicLink> <CarouselActionNextIcon /></PrismicLink></div>
+        <div className={styles["list-layout"]}>{listItems} <CarouselActionNextIcon onClick={showNextItem} /></div>
     )
 }
 

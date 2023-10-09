@@ -232,6 +232,7 @@ const VariationDefault = ({ primary, items }) => {
 
   }
   const isExistsBody = (context) => {
+    if (!Array.isArray(context)) return false
     return context.length > 1
   }
   return (

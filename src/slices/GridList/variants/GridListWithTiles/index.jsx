@@ -4,17 +4,21 @@ import styles from "./index.module.scss";
 import { PrismicRichText, PrismicLink, PrismicImage } from "@prismicio/react";
 import clsx from "clsx";
 import { PrismicNextImage } from "@prismicio/next"
+import FadeIn from "@/components/animations";
 const VariationGridListWithTiles = ({ primary, items }) => {
     const { heading, sub_heading } = primary
     return (
         <div className="container">
             <div className={styles.layout}>
                 <div className={styles.heading}>
-                    <PrismicRichText field={heading} components={{
-                        heading2: ({ children }) => (
-                            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">{children}</h2>
-                        )
-                    }} />
+                    <FadeIn>
+                        <PrismicRichText field={heading} components={{
+                            heading2: ({ children }) => (
+                                <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">{children}</h2>
+                            )
+                        }} />
+                    </FadeIn>
+
                     <PrismicRichText field={sub_heading} components={{
                         paragraph: ({ children }) => (
                             <p className="mt-6 paragraph-heading">{children}</p>

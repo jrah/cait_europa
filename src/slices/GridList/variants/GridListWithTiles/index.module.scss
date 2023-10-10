@@ -54,3 +54,17 @@
 .carousel-hidden {
   @apply hidden;
 }
+
+.paragraph-heading {
+  @apply text-center;
+  @include mq(tablet-portrait-up) {
+    @apply text-left;
+  }
+}
+
+.heading {
+  @apply text-center;
+  @include mq(tablet-portrait-up) {
+    @apply text-left;
+  }
+}

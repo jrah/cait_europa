@@ -14,14 +14,14 @@ const VariationGridListWithTiles = ({ primary, items }) => {
                     <FadeIn>
                         <PrismicRichText field={heading} components={{
                             heading2: ({ children }) => (
-                                <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">{children}</h2>
+                                <h2 className={clsx(["text-4xl font-bold tracking-tight sm:text-5xl mb-6", styles["heading"]])}>{children}</h2>
                             )
                         }} />
                     </FadeIn>
 
                     <PrismicRichText field={sub_heading} components={{
                         paragraph: ({ children }) => (
-                            <p className="mt-6 paragraph-heading">{children}</p>
+                            <p className={clsx(["mt-6 paragraph-heading", styles["paragraph-heading"]])}>{children}</p>
                         )
                     }} />
                 </div>

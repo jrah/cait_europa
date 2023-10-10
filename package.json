@@ -20,13 +20,13 @@
     "sass": "^1.68.0"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "^0.3.18",
+    "@slicemachine/adapter-next": "^0.3.19",
     "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "latest",
-    "slice-machine-ui": "^1.15.0",
+    "slice-machine-ui": "^1.16.0",
     "tailwindcss": "latest"
   }
 }

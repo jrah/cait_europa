@@ -1,7 +1,7 @@
 .before-visible {
   visibility: hidden;
   transform: translateY(-50%);
-  transition: opacity 400ms ease-out, transform 200ms ease-out;
+  transition: opacity 800ms ease-out, transform 500ms ease-out;
   will-change: opacity, visibility;
 }
 

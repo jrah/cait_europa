@@ -1,7 +1,7 @@
 @import "/./src/app/utils.scss";
 
 .layout {
-  @include mq(tablet-portrait-up) {
+  @include mq(desktop-up) {
     @apply flex gap-4;
   }
 }

@@ -5,39 +5,39 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
- * Item in *Global → Buttons*
+ * Item in *Global → Links*
  */
-export interface GlobalDocumentDataButtonsItem {
+export interface GlobalDocumentDataLinksItem {
   /**
-   * Button text field in *Global → Buttons*
+   * Button text field in *Global → Links*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: global.buttons[].button_text
+   * - **API ID Path**: global.links[].button_text
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button_text: prismic.KeyTextField;
 
   /**
-   * Button link field in *Global → Buttons*
+   * Button link field in *Global → Links*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: global.buttons[].button_link
+   * - **API ID Path**: global.links[].button_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button_link: prismic.LinkField;
 
   /**
-   * Button style field in *Global → Buttons*
+   * Button style field in *Global → Links*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: primary
-   * - **API ID Path**: global.buttons[].button_style
+   * - **Default Value**: text
+   * - **API ID Path**: global.links[].button_style
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  button_style: prismic.SelectField<"primary" | "secondary", "filled">;
+  button_style: prismic.SelectField<"text" | "primary" | "secondary", "filled">;
 }
 
 /**
@@ -77,15 +77,15 @@ interface GlobalDocumentData {
   navigation_image: prismic.ImageField<never>;
 
   /**
-   * Buttons field in *Global*
+   * Links field in *Global*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: global.buttons[]
+   * - **API ID Path**: global.links[]
    * - **Tab**: Navigation
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  buttons: prismic.GroupField<Simplify<GlobalDocumentDataButtonsItem>>;
+  links: prismic.GroupField<Simplify<GlobalDocumentDataLinksItem>>;
 
   /**
    * Background color field in *Global*
@@ -919,7 +919,7 @@ declare module "@prismicio/client" {
     export type {
       GlobalDocument,
       GlobalDocumentData,
-      GlobalDocumentDataButtonsItem,
+      GlobalDocumentDataLinksItem,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,

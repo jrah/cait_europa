@@ -32,10 +32,10 @@
           "thumbnails": []
         }
       },
-      "buttons": {
+      "links": {
         "type": "Group",
         "config": {
-          "label": "Buttons",
+          "label": "Links",
           "fields": {
             "button_text": {
               "type": "Text",
@@ -57,8 +57,8 @@
               "config": {
                 "label": "Button style",
                 "placeholder": "",
-                "options": ["primary", "secondary"],
-                "default_value": "primary"
+                "options": ["text", "primary", "secondary"],
+                "default_value": "text"
               }
             }
           }

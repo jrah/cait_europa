@@ -19,20 +19,19 @@ export const metadata = {
 const client = createClient();
 
 const globalSettings = await client.getSingle("global")
-
 const {
   navigation_image,
-  buttons,
+  links,
   background_color,
   image,
-  notice
+  notice,
 } = globalSettings.data || {}
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
       <body>
-        {globalSettings ? <Navigation buttons={buttons} navigationImage={navigation_image} backgroundColor={background_color} /> : null}
+        {globalSettings ? <Navigation links={links} navigationImage={navigation_image} backgroundColor={background_color} /> : null}
         {children}
         <Footer navigationImage={image} backgroundColor={background_color} notice={notice} />
         <PrismicPreview repositoryName={cait} />

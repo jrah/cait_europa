@@ -24,7 +24,14 @@
     @apply block;
   }
   &-is-open {
-    @apply block;
+    @apply flex;
+    @apply flex-col;
+    @apply fixed;
+    top: 50px;
+    @apply left-0;
+    @apply right-0;
+    height: 100%;
+    @apply bg-primary;
   }
 }
 

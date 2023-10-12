@@ -40,4 +40,7 @@
   height: 100%;
   display: flex;
   align-items: center;
+  @include mq(desktop-up) {
+    @apply hidden;
+  }
 }

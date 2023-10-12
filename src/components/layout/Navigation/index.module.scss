@@ -3,7 +3,7 @@
 .container {
   display: flex;
   justify-content: space-between;
-  position: relative;
+  align-items: center;
 }
 
 .background-color {
@@ -29,7 +29,6 @@
 }
 
 .toggle-button {
-  // @apply absolute right-0;
   @apply cursor-pointer;
   height: 100%;
   display: flex;

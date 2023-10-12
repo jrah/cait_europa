@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 import { PrismicRichText, PrismicLink, PrismicImage } from "@prismicio/react";
 import clsx from "clsx";
 import { PrismicNextImage } from "@prismicio/next"
-import FadeIn from "@/components/animations";
+import FadeIn from "@/components/Animations";
 const VariationGridListWithTiles = ({ primary, items }) => {
     const { heading, sub_heading } = primary
     return (

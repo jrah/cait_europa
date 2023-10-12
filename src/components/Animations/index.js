@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./index.module.scss";
 import clsx from "clsx";
+
 const FadeIn = ({ children }) => {
 
     const ref = useRef();

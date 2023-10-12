@@ -1,13 +1,9 @@
 @import "~src/app/utils.scss";
 
 .container {
-  @apply pt-6;
-  @apply pb-12;
-  @include mq(tablet-landscape-up) {
-    @apply py-6;
-  }
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .background-color {
@@ -20,8 +16,22 @@
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 500;
-  display: none;
+}
+
+.navigation {
+  @apply hidden;
   @include mq(desktop-up) {
-    display: block;
+    @apply block;
   }
+  &-is-open {
+    @apply block;
+  }
+}
+
+.toggle-button {
+  // @apply absolute right-0;
+  @apply cursor-pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }

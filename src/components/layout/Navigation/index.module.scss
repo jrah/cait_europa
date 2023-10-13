@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @apply py-6;
 }
 
 .background-color {
@@ -27,7 +28,7 @@
     @apply flex;
     @apply flex-col;
     @apply fixed;
-    top: 50px;
+    top: 100px;
     @apply left-0;
     @apply right-0;
     height: 100%;

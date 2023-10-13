@@ -11,6 +11,7 @@ const VariationTextSplashWithBody = ({ primary, items }) => {
             <div className={styles["two-column"]}>
                 <PrismicNextImage field={primary.image} width={384}
                     height={384} className={styles.image}
+                    alt={primary.image.alt ? primary.image.alt : "image"}
                     imgixParams={{ fit: "crop", w: 384, h: 384 }} unoptimized={true} />
                 <div>
 

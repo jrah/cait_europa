@@ -107,7 +107,8 @@ const VariationDefault = ({ primary, items }) => {
           />
           <List items={items} />
         </div>
-        <PrismicNextImage field={primary.image} width={500} height={500} className={styles.image} />
+        <PrismicNextImage field={primary.image} width={500} height={500} className={styles.image} alt={primary.image.alt ? primary.image.alt : "image"}
+        />
       </div>
     </div>
   );

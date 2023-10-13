@@ -9,7 +9,7 @@ const VariationTextSplashWithBody = ({ primary, items }) => {
     return (
         <div className={clsx(styles.container, "container mx-auto")}>
             <div className={styles["two-column"]}>
-                <PrismicNextImage fallbackAlt="text splash image" field={primary.image} width={384}
+                <PrismicNextImage field={primary.image} width={384}
                     height={384} className={styles.image}
                     imgixParams={{ fit: "crop", w: 384, h: 384 }} unoptimized={true} />
                 <div>

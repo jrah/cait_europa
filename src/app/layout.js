@@ -1,7 +1,7 @@
 import './globals.scss'
 import { Inter } from 'next/font/google'
 import { PrismicPreview } from '@prismicio/next'
-import { cait, createClient } from '@/prismicio'
+import { repositoryName, createClient } from '@/prismicio'
 import Navigation from "@/components/layout/Navigation";
 import Footer from '@/components/layout/Footer';
 
@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
         {globalSettings ? <Navigation links={links} navigationImage={navigation_image} backgroundColor={background_color} /> : null}
         {children}
         <Footer navigationImage={image} backgroundColor={background_color} notice={notice} />
-        <PrismicPreview repositoryName={cait} />
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   )

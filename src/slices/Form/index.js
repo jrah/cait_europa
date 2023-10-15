@@ -200,7 +200,7 @@ const VariationDefault = ({ primary, items }) => {
       <PrismicRichText field={children} components={{
         image: ({ node }) =>
         (
-          <PrismicNextImage alt={node.alt ? node.alt : "image"} field={node} className="mb-6" />
+          <PrismicNextImage field={node} className="mb-6" />
         )
       }} />
     )

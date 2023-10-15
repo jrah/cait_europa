@@ -13,6 +13,7 @@ export default function Navigation(props) {
   } : {}
   const toggleNavigation = () => {
     setIsOpen(!isOpen)
+    document.querySelector(".canvas").classList.toggle("overflow-hidden")
   }
   return (
     <div style={CSSVariableReferenceValue}

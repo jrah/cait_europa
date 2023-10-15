@@ -13,26 +13,38 @@
 
 .button {
   @apply py-3;
-  @apply px-6;
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 500;
 }
 
 .navigation {
-  @apply hidden;
+  opacity: 0;
+  // display: none;
+  transition: opacity 0.3s ease-in-out;
+  @apply fixed;
+  top: 100px;
+  @apply left-0;
+  @apply right-0;
+  @apply flex;
+  @apply flex-col;
+  @apply justify-start;
+  height: 100%;
+  @apply bg-primary;
   @include mq(desktop-up) {
-    @apply block;
+    @apply relative;
+    @apply flex;
+    opacity: 1;
+    @apply flex-row;
+    @apply justify-end;
+    top: 0;
   }
   &-is-open {
     @apply flex;
     @apply flex-col;
-    @apply fixed;
-    top: 100px;
-    @apply left-0;
-    @apply right-0;
     height: 100%;
     @apply bg-primary;
+    opacity: 1;
   }
 }
 

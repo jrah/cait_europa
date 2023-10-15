@@ -4,7 +4,7 @@ import { PrismicPreview } from '@prismicio/next'
 import { repositoryName, createClient } from '@/prismicio'
 import Navigation from "@/components/layout/Navigation";
 import Footer from '@/components/layout/Footer';
-
+import clsx from "clsx";
 // // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
   subsets: ['latin'],
@@ -28,7 +28,7 @@ const {
 } = globalSettings.data || {}
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={clsx([inter.className, "canvas"])}>
       <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
       <body>
         {globalSettings ? <Navigation links={links} navigationImage={navigation_image} backgroundColor={background_color} /> : null}

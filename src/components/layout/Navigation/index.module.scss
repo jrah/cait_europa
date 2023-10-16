@@ -30,6 +30,7 @@
   @apply flex-col;
   @apply justify-start;
   height: 100%;
+  gap-x: 1rem;
   @apply bg-primary;
   @include mq(desktop-up) {
     @apply relative;

@@ -5,5 +5,6 @@ import dynamic from "next/dynamic";
 export const components = {
   form: dynamic(() => import("./Form")),
   grid_list: dynamic(() => import("./GridList")),
+  rich_text_body: dynamic(() => import("./RichTextBody")),
   text_splash: dynamic(() => import("./TextSplash")),
 };

@@ -4,6 +4,68 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type BlogDocumentDataSlicesSlice = RichTextBodySlice;
+
+/**
+ * Content for Blog documents
+ */
+interface BlogDocumentData {
+  /**
+   * Slice Zone field in *Blog*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BlogDocumentDataSlicesSlice>
+  /**
+   * Meta Description field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Blog document from Prismic
+ *
+ * - **API ID**: `blog`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
+
 /**
  * Item in *Global → Links*
  */
@@ -255,7 +317,11 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = GlobalDocument | HomeDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | BlogDocument
+  | GlobalDocument
+  | HomeDocument
+  | SettingsDocument;
 
 /**
  * Primary content in *Form → Primary*
@@ -581,6 +647,66 @@ type GridListSliceVariation =
 export type GridListSlice = prismic.SharedSlice<
   "grid_list",
   GridListSliceVariation
+>;
+
+/**
+ * Primary content in *RichTextBody → Primary*
+ */
+export interface RichTextBodySliceDefaultPrimary {
+  /**
+   * Image field in *RichTextBody → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_body.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *RichTextBody → Items*
+ */
+export interface RichTextBodySliceDefaultItem {
+  /**
+   * Section field in *RichTextBody → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rich_text_body.items[].section
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  section: prismic.RichTextField;
+}
+
+/**
+ * Default variation for RichTextBody Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RichTextBodySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RichTextBodySliceDefaultPrimary>,
+  Simplify<RichTextBodySliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *RichTextBody*
+ */
+type RichTextBodySliceVariation = RichTextBodySliceDefault;
+
+/**
+ * RichTextBody Shared Slice
+ *
+ * - **API ID**: `rich_text_body`
+ * - **Description**: RichTextBody
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RichTextBodySlice = prismic.SharedSlice<
+  "rich_text_body",
+  RichTextBodySliceVariation
 >;
 
 /**
@@ -917,6 +1043,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogDocument,
+      BlogDocumentData,
+      BlogDocumentDataSlicesSlice,
       GlobalDocument,
       GlobalDocumentData,
       GlobalDocumentDataLinksItem,
@@ -942,6 +1071,11 @@ declare module "@prismicio/client" {
       GridListSliceDefault,
       GridListSliceGridListWithPricingTable,
       GridListSliceGridListWithTiles,
+      RichTextBodySlice,
+      RichTextBodySliceDefaultPrimary,
+      RichTextBodySliceDefaultItem,
+      RichTextBodySliceVariation,
+      RichTextBodySliceDefault,
       TextSplashSlice,
       TextSplashSliceDefaultPrimary,
       TextSplashSliceDefaultItem,

@@ -14,15 +14,24 @@
           "fields": {
             "primary": {
               "type": "Color",
-              "config": { "label": "Primary", "placeholder": "" }
+              "config": {
+                "label": "Primary",
+                "placeholder": ""
+              }
             },
             "secondary": {
               "type": "Color",
-              "config": { "label": "Secondary", "placeholder": "" }
+              "config": {
+                "label": "Secondary",
+                "placeholder": ""
+              }
             },
             "alternate": {
               "type": "Color",
-              "config": { "label": "Alternate", "placeholder": "" }
+              "config": {
+                "label": "Alternate",
+                "placeholder": ""
+              }
             }
           }
         }

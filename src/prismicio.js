@@ -20,13 +20,9 @@ const routes = [
     type: "home",
     path: "/",
   },
-  // {
-  //   type: "page",
-  //   path: "/:uid",
-  // },
   {
     type: "blog",
-    path: "blog/:uid",
+    path: "/blog/:uid",
   },
 ];
 

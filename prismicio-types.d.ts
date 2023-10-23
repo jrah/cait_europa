@@ -19,7 +19,7 @@ interface BlogDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<BlogDocumentDataSlicesSlice>
+  slices: prismic.SliceZone<BlogDocumentDataSlicesSlice>;
   /**
    * Meta Description field in *Blog*
    *
@@ -28,7 +28,7 @@ interface BlogDocumentData {
    * - **API ID Path**: blog.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_description: prismic.KeyTextField;
 
   /**
@@ -126,7 +126,7 @@ interface GlobalDocumentData {
    * - **Tab**: Footer
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  notice: prismic.KeyTextField
+  notice: prismic.KeyTextField;
   /**
    * Navigation image field in *Global*
    *
@@ -135,7 +135,7 @@ interface GlobalDocumentData {
    * - **API ID Path**: global.navigation_image
    * - **Tab**: Navigation
    * - **Documentation**: https://prismic.io/docs/field#image
-   */;
+   */
   navigation_image: prismic.ImageField<never>;
 
   /**
@@ -203,7 +203,7 @@ interface HomeDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>
+  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>;
   /**
    * Meta Description field in *home*
    *
@@ -212,7 +212,7 @@ interface HomeDocumentData {
    * - **API ID Path**: home.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */;
+   */
   meta_description: prismic.RichTextField;
 
   /**
@@ -265,7 +265,7 @@ interface PageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>;
   /**
    * Meta Description field in *page*
    *
@@ -274,7 +274,7 @@ interface PageDocumentData {
    * - **API ID Path**: page.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_description: prismic.KeyTextField;
 
   /**
@@ -676,7 +676,7 @@ export interface GridListSliceGridListWithTilesItem {
    * - **API ID Path**: grid_list.items[].tile_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  tile_link: prismic.LinkToMediaField;
+  tile_link: prismic.LinkField;
 }
 
 /**

@@ -124,7 +124,7 @@ function List({ items }) {
     );
   });
   return (
-    <dl className="mx-auto mt-12 flex justify-between text-lg">{listItems}</dl>
+    <div className="mx-auto mt-12 flex justify-between text-lg">{listItems}</div>
   );
 }
 

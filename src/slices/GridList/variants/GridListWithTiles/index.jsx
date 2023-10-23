@@ -62,9 +62,9 @@ function List({ items }) {
         return itemIndex >= stateIndex && itemIndex < stateIndex + 3 ? styles["carousel-active"] : styles["carousel-hidden"]
     }
     const listItems = items.map((item, index) => {
-        const { image, heading, description, tile_link } = item
+        const { image, heading, description, link } = item
         return (
-            <PrismicLink field={tile_link} key={index} className={clsx(styles.tile, styles["carousel-item"], getVisibility(index, currentIndex))}>
+            <PrismicLink field={link} key={index} className={clsx(styles.tile, styles["carousel-item"], getVisibility(index, currentIndex))}>
                 <div className="z-50 relative pt-72 px-4 pb-6">
                     <PrismicRichText field={heading} components={{
                         heading3: ({ children }) => (

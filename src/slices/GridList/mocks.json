@@ -205,7 +205,7 @@
 								{
 									"type": "paragraph",
 									"content": {
-										"text": "Incididunt non ea aliquip nostrud sint fugiat Lorem. Minim occaecat nulla et reprehenderit irure officia cupidatat consequat excepteur ea."
+										"text": "Non magna commodo minim cillum. Dolor est culpa tempor deserunt."
 									}
 								}
 							]
@@ -222,6 +222,16 @@
 								"url": "https://source.unsplash.com/daily",
 								"size": "0",
 								"__TYPE__": "FileLink"
+							}
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://twitter.com"
 							}
 						}
 					]

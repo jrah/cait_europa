@@ -45,7 +45,7 @@ const VariationComponent = ({ data, isInitialSlice }) => {
 };
 
 const VariationDefault = ({ primary, items, isInitialSlice }) => {
-  imagePriority = !isInitialSlice;
+  const imagePriority = !isInitialSlice;
   const components = {
     heading1: ({ children }) => (
       <SliceHeading

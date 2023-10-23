@@ -6,7 +6,7 @@ const VariationGridListWithPricing = ({ primary, items }) => {
     const { heading, sub_heading, background_image_top } = primary
     return (
         <div className="container">
-            <PrismicImage field={background_image_top} className={styles["background-image"]} />
+            <PrismicImage field={background_image_top} className={styles["background-image"]} fallbackAlt="" />
             <div className="mb-16 text-center">
                 <PrismicRichText field={heading} components={{
                     heading2: ({ children }) => (

@@ -19,7 +19,7 @@ export default function Navigation(props) {
     <div style={CSSVariableReferenceValue}
       className={styles['background-color']}>
       <div className={clsx("container mx-auto", styles.container)}>
-        <PrismicImage field={navigationImage} width="150" height="150"></PrismicImage>
+        <PrismicImage field={navigationImage} width="150" height="150" fallbackAlt="" />
         <div className={clsx([styles.navigation, "container", { [styles['navigation-is-open']]: isOpen }])}>{listlinks(links)}</div>
         <div onClick={toggleNavigation} className={styles["toggle-button"]}>
           <MobileIcon state={isOpen} />

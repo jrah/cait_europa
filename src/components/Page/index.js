@@ -28,3 +28,13 @@ export async function SSGPageTypeGeneration(type) {
         }
     })
 }
+
+export async function MetaData(type, uid) {
+    const client = createClient();
+    const page = await client.getByUID(type, uid);
+    const { meta_description, meta_title } = page.data;
+    return {
+        title: meta_title,
+        meta_description: meta_description
+    };
+}

@@ -14,6 +14,10 @@ import VariationTextSplashWithBody from "./variants/TextSplashWithBody";
  * Component for "TextSplash" Slices.
  */
 const TextSplash = ({ slice, context }) => {
+  const [firstItem] = context;
+  console.log(firstItem.variation);
+  console.log(firstItem === slice)
+  console.log(slice.variation)
   return (
     <SliceSection
       contextArray={context}
@@ -24,24 +28,24 @@ const TextSplash = ({ slice, context }) => {
       classes={styles["background-color"]}
       backgroundColor={slice.primary.background_color}
     >
-      <VariationComponent data={slice} />
+      <VariationComponent data={slice} isInitialSlice={firstItem === slice} />
     </SliceSection>
   );
 };
 
-const VariationComponent = ({ data }) => {
+const VariationComponent = ({ data, isInitialSlice }) => {
   const { primary, items, variation } = data;
   if (variation === "textSplashWithBody") {
-    return <VariationTextSplashWithBody primary={primary} items={items} />;
+    return <VariationTextSplashWithBody primary={primary} items={items} isInitialSlice={isInitialSlice} />;
   }
   if (variation === "default") {
-    return <VariationDefault primary={primary} items={items} />;
+    return <VariationDefault primary={primary} items={items} isInitialSlice={isInitialSlice} />;
   }
-  return <VariationDefault primary={primary} items={items} />;
+  return <VariationDefault primary={primary} items={items} isInitialSlice={isInitialSlice} />;
 };
 
-const VariationDefault = ({ primary, items }) => {
-
+const VariationDefault = ({ primary, items, isInitialSlice }) => {
+  imagePriority = !isInitialSlice;
   const components = {
     heading1: ({ children }) => (
       <SliceHeading
@@ -107,7 +111,7 @@ const VariationDefault = ({ primary, items }) => {
           />
           <List items={items} />
         </div>
-        <PrismicNextImage field={primary.image} width={500} height={500} className={styles.image} fallbackAlt="" />
+        <PrismicNextImage field={primary.image} width={500} height={500} className={styles.image} fallbackAlt="" priority={imagePriority} />
       </div>
     </div>
   );

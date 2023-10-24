@@ -29,7 +29,7 @@ const {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={clsx([inter.className, "canvas"])}>
-      <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charSet="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
       <body>
         {globalSettings ? <Navigation links={links} navigationImage={navigation_image} backgroundColor={background_color} /> : null}
         {children}

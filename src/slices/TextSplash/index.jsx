@@ -15,9 +15,6 @@ import VariationTextSplashWithBody from "./variants/TextSplashWithBody";
  */
 const TextSplash = ({ slice, context }) => {
   const [firstItem] = context;
-  console.log(firstItem.variation);
-  console.log(firstItem === slice)
-  console.log(slice.variation)
   return (
     <SliceSection
       contextArray={context}

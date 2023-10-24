@@ -10,7 +10,7 @@ export default async function sitemap() {
     }))
 
     const routes = [""].map((route) => ({
-        url: `${URL}${route}`,
+        url: `${url}${route}`,
         lastModified: new Date().toISOString(),
     }));
 

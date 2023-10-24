@@ -1,4 +1,4 @@
-import { CreateClient } from "@prismicio/client"
+import { createClient } from "@prismicio/client"
 
 export default async function sitemap() {
     const url = `http://${process.env.BASE_URL}`

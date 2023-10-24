@@ -42,7 +42,6 @@ const VariationComponent = ({ data, isInitialSlice }) => {
 };
 
 const VariationDefault = ({ primary, items, isInitialSlice }) => {
-  const imagePriority = !isInitialSlice;
   const components = {
     heading1: ({ children }) => (
       <SliceHeading
@@ -108,7 +107,7 @@ const VariationDefault = ({ primary, items, isInitialSlice }) => {
           />
           <List items={items} />
         </div>
-        <PrismicNextImage field={primary.image} width={500} height={500} className={styles.image} fallbackAlt="" priority={imagePriority} />
+        <PrismicNextImage field={primary.image} width={500} height={500} className={styles.image} fallbackAlt="" priority={isInitialSlice} />
       </div>
     </div>
   );

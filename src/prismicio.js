@@ -22,6 +22,10 @@ const routes = [
     type: "blog",
     path: "/blog/:uid",
   },
+  {
+    type: "page",
+    path: "/:uid",
+  },
 ];
 
 /**

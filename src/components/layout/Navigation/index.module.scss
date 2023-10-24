@@ -20,7 +20,6 @@
 
 .navigation {
   opacity: 0;
-  // display: none;
   transition: opacity 0.3s ease-in-out;
   @apply fixed;
   top: 100px;
@@ -31,6 +30,7 @@
   @apply justify-start;
   height: 100%;
   column-gap: 1rem;
+  z-index: 1;
   @apply bg-primary;
   @include mq(desktop-up) {
     @apply relative;
@@ -46,6 +46,7 @@
     height: 100%;
     @apply bg-primary;
     opacity: 1;
+    z-index: 1;
   }
 }
 

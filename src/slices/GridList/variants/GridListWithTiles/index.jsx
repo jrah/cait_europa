@@ -37,8 +37,8 @@ const CarouselActionNextIcon = ({ onClick }) => {
         <div className={styles.next} onClick={onClick}>
             <div className="relative inline-flex">
                 <span className={styles.pulse}>
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-300"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-300"></span>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth={0.5} className="w-16 h-16">
                     <path strokeLinecap="round" strokeLinejoin="round" fill="rgb(96 165 250)" stroke="rgb(96 165 250)" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

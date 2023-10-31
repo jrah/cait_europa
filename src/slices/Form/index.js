@@ -131,15 +131,15 @@ const VariationDefault = ({ primary, items }) => {
     )
   }
 
-  const TextInput = ({ label, value, ...props }) => {
+  const TextInput = ({ label, ...props }) => {
     return (
-      <BaseInput type="text" label={label} value={value} {...props} />
+      <BaseInput type="text" label={label} {...props} />
     );
   };
 
-  const EmailInput = ({ label, value, ...props }) => {
+  const EmailInput = ({ label, ...props }) => {
     return (
-      <BaseInput type="text" label={"text"} value={value} {...props} />
+      <BaseInput type="email" {...props} />
 
     );
   };

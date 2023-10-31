@@ -84,38 +84,62 @@ const SectionHeading = ({ heading }) => {
 }
 
 const VariationDefault = ({ primary, items }) => {
+  const kebabCase = string => string
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/[\s_]+/g, '-')
+    .toLowerCase();
+
+  const getInputDescriptors = (array) => {
+    return array.filter((item) => {
+      return Array.isArray(item.text) && !item.type.toLowerCase().includes("paragraph") && !item.type.toLowerCase().includes("submit")
+    }).map(({ text }) => {
+      const [textDescription] = text
+      return kebabCase(textDescription.text)
+    })
+  }
   const [isProcessing, setIsProcessing] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleSubmit = () => {
+  const [formData, setFormData] = useState(Object.fromEntries(getInputDescriptors(items).map(item => [item, null])))
+  console.log(formData)
+  const handleSubmit = async (e) => {
     setIsProcessing(true)
-    setTimeout(() => {
+    e.preventDefault();
+    await fetch("/api/send", {
+      method: "POST",
+      body: formData,
+    }).then((res) => res.json()).then((data) => {
+      console.log("success", data)
       setIsProcessing(false)
       setIsSubmitted(true)
-    }, 2000)
-
+    }).catch((err) => {
+      console.log("error", err);
+    })
+    // setTimeout(() => {
+    //   setIsProcessing(false)
+    //   setIsSubmitted(true)
+    // }, 2000)
   }
-  const BaseInput = ({ label, children, type }) => {
+  const BaseInput = ({ label, children, type, value, onChange }) => {
     return (
       <div className="form-item">
         <label htmlFor={label} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
         <div className="mt-2">
           <input className="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            name={label} id={label} type={type} placeholder={children} />
+            name={label} id={label} type={type} placeholder={children} value={value} onChange={(e) => { onChange(label, e) }} />
         </div>
       </div>
     )
   }
 
-  const TextInput = ({ label, ...props }) => {
+  const TextInput = ({ label, value, ...props }) => {
     return (
-      <BaseInput type="text" label={label} {...props} />
+      <BaseInput type="text" label={label} value={value} {...props} />
     );
   };
 
-  const EmailInput = ({ label, ...props }) => {
+  const EmailInput = ({ label, value, ...props }) => {
     return (
-      <BaseInput type="email" label={label} {...props} />
+      <BaseInput type="text" label={"text"} value={value} {...props} />
 
     );
   };
@@ -141,7 +165,7 @@ const VariationDefault = ({ primary, items }) => {
     );
   };
 
-  const TextArea = ({ label, children }) => {
+  const TextArea = ({ label, children, onChange }) => {
     return (
       <div className="form-item">
         <label htmlFor={label}>{children}</label>
@@ -153,6 +177,7 @@ const VariationDefault = ({ primary, items }) => {
             rows={3}
             className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             defaultValue={''}
+            onChange={(e) => onChange(label, e)}
           /></div>
       </div>
     );
@@ -166,7 +191,7 @@ const VariationDefault = ({ primary, items }) => {
 
     if (isProcessing) {
       return <svg className="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
       </svg>
     }
@@ -235,6 +260,16 @@ const VariationDefault = ({ primary, items }) => {
     if (!Array.isArray(context)) return false
     return context.length > 1
   }
+  const onChangeInputField = (field, e) => {
+    e.preventDefault();
+    const updateData = { ...formData }
+    console.log(field)
+    console.log(e.target.value)
+    // updateData[field] = e.target.value
+    console.log(updateData)
+    // setFormData(updateData)
+  }
+
   return (
     <div className="container">
       <div className="mb-6">
@@ -250,7 +285,7 @@ const VariationDefault = ({ primary, items }) => {
           {items.map((item, index) => {
             const FormType = formTypes[formTypeSantize(item.type)];
             if (FormType) {
-              return <FormType key={index} label={formInputID(item.text)} type={formTypeSantize(item.type)} extended={richTextGetExtended(item.text)}>{richTextGetLabel(item.text)}</FormType>;
+              return <FormType key={index} value={formData.hasOwnProperty(formTypeSantize(item.type)) ? formData[formTypeSantize(item.type)] : null} label={formInputID(item.text)} type={formTypeSantize(item.type)} onChange={onChangeInputField} extended={richTextGetExtended(item.text)}>{richTextGetLabel(item.text)}</FormType>;
             } else {
               return <div key={index}>Unknown Form Element: {formTypeSantize(item.type)}</div>;
             }

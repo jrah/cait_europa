@@ -83,6 +83,58 @@ const SectionHeading = ({ heading }) => {
   return <PrismicRichText field={heading} components={components} />
 }
 
+const BaseInput = ({ children, onInputChange, type, defaultValue, name, autofocus }) => {
+  const hasAutoFocus = autofocus ? autofocus : false
+  const handleChange = (e) => {
+    onInputChange(e)
+  }
+  return (
+    <div>
+      <label htmlFor={name} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
+      <input className="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name={name} id={name} type={type} placeholder={children} value={defaultValue} onChange={event => handleChange(event)} autoFocus={hasAutoFocus} />
+    </div>
+  )
+}
+
+const ComboBox = ({ label, ...props }) => {
+  const { extended, children } = props
+  return (
+    <div className="form-item">
+      <label htmlFor={label} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
+      <div className="mt-2">
+        <select
+          id={label}
+          name={label}
+          autoComplete={`${label}-name`}
+
+          className={clsx("px-3 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6", styles.select)}
+        ><PrismicRichText field={extended} components={{
+          list: ({ children }) => children,
+          listItem: ({ children }) => <option>{children}</option>
+        }} />
+        </select></div>
+    </div>
+  );
+};
+
+const TextArea = ({ label, children, onChange }) => {
+  return (
+    <div className="form-item">
+      <label htmlFor={label}>{children}</label>
+
+      <div className="mt-2">
+        <textarea
+          id={label}
+          name={label}
+          rows={3}
+          className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          defaultValue={''}
+          onChange={(e) => onChange(label, e)}
+        /></div>
+    </div>
+  );
+};
+
 const VariationDefault = ({ primary, items }) => {
   const kebabCase = string => string
     .replace(/([a-z])([A-Z])/g, "$1-$2")
@@ -99,89 +151,26 @@ const VariationDefault = ({ primary, items }) => {
   }
   const [isProcessing, setIsProcessing] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [formData, setFormData] = useState(Object.fromEntries(getInputDescriptors(items).map(item => [item, null])))
-  console.log(formData)
+  const [formData, setFormData] = useState(Object.fromEntries(getInputDescriptors(items).map(item => [item, ""])))
   const handleSubmit = async (e) => {
     setIsProcessing(true)
     e.preventDefault();
     await fetch("/api/send", {
       method: "POST",
-      body: formData,
-    }).then((res) => res.json()).then((data) => {
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((data) => {
       console.log("success", data)
       setIsProcessing(false)
       setIsSubmitted(true)
-    }).catch((err) => {
+    }).catch((err, data) => {
+      console.log(data)
       console.log("error", err);
     })
-    // setTimeout(() => {
-    //   setIsProcessing(false)
-    //   setIsSubmitted(true)
-    // }, 2000)
-  }
-  const BaseInput = ({ label, children, type, value, onChange }) => {
-    return (
-      <div className="form-item">
-        <label htmlFor={label} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
-        <div className="mt-2">
-          <input className="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            name={label} id={label} type={type} placeholder={children} value={value} onChange={(e) => { onChange(label, e) }} />
-        </div>
-      </div>
-    )
   }
 
-  const TextInput = ({ label, ...props }) => {
-    return (
-      <BaseInput type="text" label={label} {...props} />
-    );
-  };
-
-  const EmailInput = ({ label, ...props }) => {
-    return (
-      <BaseInput type="email" {...props} />
-
-    );
-  };
-
-  const ComboBox = ({ label, ...props }) => {
-    const { extended, children } = props
-    return (
-      <div className="form-item">
-        <label htmlFor={label} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
-        <div className="mt-2">
-          <select
-            id={label}
-            name={label}
-            autoComplete={`${label}-name`}
-
-            className={clsx("px-3 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6", styles.select)}
-          ><PrismicRichText field={extended} components={{
-            list: ({ children }) => children,
-            listItem: ({ children }) => <option>{children}</option>
-          }} />
-          </select></div>
-      </div>
-    );
-  };
-
-  const TextArea = ({ label, children, onChange }) => {
-    return (
-      <div className="form-item">
-        <label htmlFor={label}>{children}</label>
-
-        <div className="mt-2">
-          <textarea
-            id={label}
-            name={label}
-            rows={3}
-            className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            defaultValue={''}
-            onChange={(e) => onChange(label, e)}
-          /></div>
-      </div>
-    );
-  };
 
   const Paragraph = ({ children }) => {
     return <p>{children}</p>
@@ -232,8 +221,8 @@ const VariationDefault = ({ primary, items }) => {
   }
 
   const formTypes = {
-    text: TextInput,
-    email: EmailInput,
+    text: BaseInput,
+    email: BaseInput,
     submit: Submit,
     combobox: ComboBox,
     textarea: TextArea,
@@ -260,16 +249,10 @@ const VariationDefault = ({ primary, items }) => {
     if (!Array.isArray(context)) return false
     return context.length > 1
   }
-  const onChangeInputField = (field, e) => {
+  const handleInputChange = (e) => {
     e.preventDefault();
-    const updateData = { ...formData }
-    console.log(field)
-    console.log(e.target.value)
-    // updateData[field] = e.target.value
-    console.log(updateData)
-    // setFormData(updateData)
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   }
-
   return (
     <div className="container">
       <div className="mb-6">
@@ -283,9 +266,10 @@ const VariationDefault = ({ primary, items }) => {
       <div className={isExistsBody(primary.body) && styles["layout"]}>
         <form className="grid gap-6">
           {items.map((item, index) => {
+            const [label] = item.text;
             const FormType = formTypes[formTypeSantize(item.type)];
             if (FormType) {
-              return <FormType key={index} value={formData.hasOwnProperty(formTypeSantize(item.type)) ? formData[formTypeSantize(item.type)] : null} label={formInputID(item.text)} type={formTypeSantize(item.type)} onChange={onChangeInputField} extended={richTextGetExtended(item.text)}>{richTextGetLabel(item.text)}</FormType>;
+              return <FormType key={index} onInputChange={handleInputChange} type={formTypeSantize(item.type)} defaultValue={formData[formTypeSantize(label.text)]} name={formTypeSantize(label.text)}>{richTextGetLabel(item.text)}</FormType>;
             } else {
               return <div key={index}>Unknown Form Element: {formTypeSantize(item.type)}</div>;
             }

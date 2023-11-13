@@ -11,6 +11,7 @@ import styles from "./index.module.scss";
 import clsx from "clsx";
 import { useState } from "react";
 import { PrismicNextImage } from "@prismicio/next";
+import { list } from "postcss";
 const Form = ({ slice, context }) => {
   return (
     <SliceSection
@@ -96,23 +97,27 @@ const BaseInput = ({ children, onInputChange, type, defaultValue, name, autofocu
   )
 }
 
-const ComboBox = ({ label, ...props }) => {
-  const { extended, children } = props
+const ComboBox = ({ ...props }) => {
+  const handleChange = (e) => {
+    onInputChange(e)
+  }
+  const { children, name, extendedRichText, onInputChange } = props
   return (
     <div className="form-item">
-      <label htmlFor={label} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
+      <label htmlFor={name} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
       <div className="mt-2">
         <select
-          id={label}
-          name={label}
-          autoComplete={`${label}-name`}
+          onChange={event => handleChange(event)}
+          id={name}
+          name={name}
+          autoComplete={`${name}-name`}
 
           className={clsx("px-3 block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6", styles.select)}
-        ><PrismicRichText field={extended} components={{
+        ><PrismicRichText field={extendedRichText} components={{
           list: ({ children }) => children,
           listItem: ({ children }) => <option>{children}</option>
         }} />
-        </select></div>
+        </select ></div>
     </div>
   );
 };
@@ -141,17 +146,35 @@ const VariationDefault = ({ primary, items }) => {
     .replace(/[\s_]+/g, '-')
     .toLowerCase();
 
-  const getInputDescriptors = (array) => {
+
+  const getInitValues = (array) => {
     return array.filter((item) => {
       return Array.isArray(item.text) && !item.type.toLowerCase().includes("paragraph") && !item.type.toLowerCase().includes("submit")
+
     }).map(({ text }) => {
-      const [textDescription] = text
+      const [textDescription, listItem] = text
+      if (listItem) {
+        return { [kebabCase(textDescription.text)]: listItem.text }
+      }
       return kebabCase(textDescription.text)
     })
   }
+
+  const getFormInputDefaultValues = Object.fromEntries(getInitValues(items).map(item => {
+    if (typeof item === 'object') {
+      const [key] = Object.keys(item)
+      const [value] = Object.values(item)
+      return (
+        [key, value]
+      )
+    }
+    return (
+      [item, ""]
+    )
+  }))
   const [isProcessing, setIsProcessing] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [formData, setFormData] = useState(Object.fromEntries(getInputDescriptors(items).map(item => [item, ""])))
+  const [formData, setFormData] = useState(getFormInputDefaultValues)
   const handleSubmit = async (e) => {
     setIsProcessing(true)
     e.preventDefault();
@@ -266,10 +289,11 @@ const VariationDefault = ({ primary, items }) => {
       <div className={isExistsBody(primary.body) && styles["layout"]}>
         <form className="grid gap-6">
           {items.map((item, index) => {
+            console.log(richTextGetExtended(item.text))
             const [label] = item.text;
             const FormType = formTypes[formTypeSantize(item.type)];
             if (FormType) {
-              return <FormType key={index} onInputChange={handleInputChange} type={formTypeSantize(item.type)} defaultValue={formData[formTypeSantize(label.text)]} name={formTypeSantize(label.text)}>{richTextGetLabel(item.text)}</FormType>;
+              return <FormType key={index} onInputChange={handleInputChange} type={formTypeSantize(item.type)} extendedRichText={richTextGetExtended(item.text)} defaultValue={formData[formTypeSantize(label.text)]} name={formTypeSantize(label.text)}>{richTextGetLabel(item.text)}</FormType>;
             } else {
               return <div key={index}>Unknown Form Element: {formTypeSantize(item.type)}</div>;
             }

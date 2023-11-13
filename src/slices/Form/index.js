@@ -293,7 +293,6 @@ const VariationDefault = ({ primary, items }) => {
       <div className={isExistsBody(primary.body) && styles["layout"]}>
         <form className="grid gap-6">
           {items.map((item, index) => {
-            console.log(richTextGetExtended(item.text))
             const [label] = item.text;
             const FormType = formTypes[formTypeSantize(item.type)];
             if (FormType) {

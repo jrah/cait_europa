@@ -122,19 +122,23 @@ const ComboBox = ({ ...props }) => {
   );
 };
 
-const TextArea = ({ label, children, onChange }) => {
+const TextArea = ({ ...props }) => {
+  const { children, name, onInputChange } = props
+  const handleChange = (e) => {
+    onInputChange(e)
+  }
   return (
     <div className="form-item">
-      <label htmlFor={label}>{children}</label>
+      <label htmlFor={name}>{children}</label>
 
       <div className="mt-2">
         <textarea
-          id={label}
-          name={label}
+          id={name}
+          name={name}
           rows={3}
           className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           defaultValue={''}
-          onChange={(e) => onChange(label, e)}
+          onChange={event => handleChange(event)}
         /></div>
     </div>
   );

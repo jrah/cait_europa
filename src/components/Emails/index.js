@@ -1,5 +1,6 @@
 
 export const EmailTemplate = ({ response }) => {
+    console.log(response)
     const items = Object
         .keys(response)
         .map(k => ({ [k]: response[k] }))

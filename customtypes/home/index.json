@@ -65,6 +65,15 @@
           "placeholder": "A title of the page used for social media and search engines"
         },
         "type": "Text"
+      },
+      "json_schema": {
+        "type": "StructuredText",
+        "config": {
+          "label": "JSON Schema",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "embed"
+        }
       }
     }
   }

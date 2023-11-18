@@ -35,6 +35,16 @@
 						}
 					}
 				]
+			},
+			"recipient": {
+				"__TYPE__": "FieldContent",
+				"value": "opportunity",
+				"type": "Text"
+			},
+			"subject": {
+				"__TYPE__": "FieldContent",
+				"value": "care",
+				"type": "Text"
 			}
 		},
 		"items": [

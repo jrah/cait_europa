@@ -205,17 +205,6 @@ interface HomeDocumentData {
    */
   slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>
   /**
-   * Meta Description field in *home*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: home.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */;
-  meta_description: prismic.RichTextField;
-
-  /**
    * Meta Image field in *home*
    *
    * - **Field Type**: Image
@@ -223,7 +212,7 @@ interface HomeDocumentData {
    * - **API ID Path**: home.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
-   */
+   */;
   meta_image: prismic.ImageField<never>;
 
   /**
@@ -247,6 +236,17 @@ interface HomeDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   json_schema: prismic.RichTextField;
+
+  /**
+   * meta_description field in *home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
 }
 
 /**

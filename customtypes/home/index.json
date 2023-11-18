@@ -41,13 +41,6 @@
       }
     },
     "SEO & Metadata": {
-      "meta_description": {
-        "config": {
-          "label": "Meta Description",
-          "placeholder": "A brief summary of the page"
-        },
-        "type": "StructuredText"
-      },
       "meta_image": {
         "config": {
           "constraint": {
@@ -73,6 +66,13 @@
           "placeholder": "",
           "allowTargetBlank": true,
           "single": "embed"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "meta_description",
+          "placeholder": ""
         }
       }
     }

@@ -205,17 +205,6 @@ interface HomeDocumentData {
    */
   slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>
   /**
-   * Meta Description field in *home*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: home.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */;
-  meta_description: prismic.RichTextField;
-
-  /**
    * Meta Image field in *home*
    *
    * - **Field Type**: Image
@@ -223,7 +212,7 @@ interface HomeDocumentData {
    * - **API ID Path**: home.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
-   */
+   */;
   meta_image: prismic.ImageField<never>;
 
   /**
@@ -236,6 +225,28 @@ interface HomeDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * JSON Schema field in *home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.json_schema
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  json_schema: prismic.RichTextField;
+
+  /**
+   * meta_description field in *home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
 }
 
 /**
@@ -419,6 +430,26 @@ export interface FormSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   body: prismic.RichTextField;
+
+  /**
+   * recipient field in *Form → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.primary.recipient
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  recipient: prismic.KeyTextField;
+
+  /**
+   * subject field in *Form → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.primary.subject
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subject: prismic.KeyTextField;
 }
 
 /**
@@ -448,6 +479,27 @@ export interface FormSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   text: prismic.RichTextField;
+
+  /**
+   * required field in *Form → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: form.items[].required
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  required: prismic.BooleanField;
+
+  /**
+   * validation field in *Form → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.items[].validation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  validation: prismic.KeyTextField;
 }
 
 /**

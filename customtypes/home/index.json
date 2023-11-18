@@ -41,13 +41,6 @@
       }
     },
     "SEO & Metadata": {
-      "meta_description": {
-        "config": {
-          "label": "Meta Description",
-          "placeholder": "A brief summary of the page"
-        },
-        "type": "StructuredText"
-      },
       "meta_image": {
         "config": {
           "constraint": {
@@ -65,6 +58,22 @@
           "placeholder": "A title of the page used for social media and search engines"
         },
         "type": "Text"
+      },
+      "json_schema": {
+        "type": "StructuredText",
+        "config": {
+          "label": "JSON Schema",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "embed"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "meta_description",
+          "placeholder": ""
+        }
       }
     }
   }

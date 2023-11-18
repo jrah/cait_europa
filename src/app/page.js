@@ -21,6 +21,6 @@ export async function generateMetadata() {
   const { meta_description, meta_title } = page.data;
   return {
     title: meta_title,
-    meta_description: meta_description
+    description: meta_description
   };
 }

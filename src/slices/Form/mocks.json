@@ -35,6 +35,16 @@
 						}
 					}
 				]
+			},
+			"recipient": {
+				"__TYPE__": "FieldContent",
+				"value": "opportunity",
+				"type": "Text"
+			},
+			"subject": {
+				"__TYPE__": "FieldContent",
+				"value": "care",
+				"type": "Text"
 			}
 		},
 		"items": [
@@ -61,6 +71,21 @@
 									}
 								}
 							]
+						}
+					],
+					[
+						"required",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": true
+						}
+					],
+					[
+						"validation",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "express",
+							"type": "Text"
 						}
 					]
 				]

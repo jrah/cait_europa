@@ -278,7 +278,10 @@ const VariationDefault = ({ primary, items }) => {
   }
   const handleInputChange = (e) => {
     e.preventDefault();
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const subject = primary.subject.length > 1 ? primary.subject : "No subject set"
+    const recipient = primary.recipient.length > 1 ? primary.recipient : "james@jameshome.co.uk"
+    const emailHeaders = { subject: subject, to: recipient }
+    setFormData({ ...formData, ...emailHeaders, [e.target.name]: e.target.value });
   }
   return (
     <div className="container">

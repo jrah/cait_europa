@@ -479,6 +479,27 @@ export interface FormSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   text: prismic.RichTextField;
+
+  /**
+   * required field in *Form → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: form.items[].required
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  required: prismic.BooleanField;
+
+  /**
+   * validation field in *Form → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.items[].validation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  validation: prismic.KeyTextField;
 }
 
 /**

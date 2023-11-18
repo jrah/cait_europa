@@ -72,6 +72,21 @@
 								}
 							]
 						}
+					],
+					[
+						"required",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": true
+						}
+					],
+					[
+						"validation",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "express",
+							"type": "Text"
+						}
 					]
 				]
 			}

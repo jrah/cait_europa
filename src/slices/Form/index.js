@@ -12,6 +12,8 @@ import clsx from "clsx";
 import { useState } from "react";
 import { PrismicNextImage } from "@prismicio/next";
 import { list } from "postcss";
+import { useForm } from 'react-hook-form';
+
 const Form = ({ slice, context }) => {
   return (
     <SliceSection
@@ -84,7 +86,7 @@ const SectionHeading = ({ heading }) => {
   return <PrismicRichText field={heading} components={components} />
 }
 
-const BaseInput = ({ children, onInputChange, type, defaultValue, name, autofocus }) => {
+const BaseInput = ({ children, onInputChange, type, defaultValue, name, autofocus, validate, validateErrors, required }) => {
   const hasAutoFocus = autofocus ? autofocus : false
   const handleChange = (e) => {
     onInputChange(e)
@@ -92,7 +94,10 @@ const BaseInput = ({ children, onInputChange, type, defaultValue, name, autofocu
   return (
     <div>
       <label htmlFor={name} className="block text-sm font-medium leading-6 text-gray-900">{children}</label>
-      <input className="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name={name} id={name} type={type} placeholder={children} value={defaultValue} onChange={event => handleChange(event)} autoFocus={hasAutoFocus} />
+      <input {...validate(name, { required: required })} className="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name={name} id={name} type={type} placeholder={children} value={defaultValue} onChange={event => handleChange(event)} autoFocus={hasAutoFocus} />
+      {validateErrors[name]?.type === "required" && (
+        <p role="alert">{children} is required</p>
+      )}
     </div>
   )
 }
@@ -179,9 +184,10 @@ const VariationDefault = ({ primary, items }) => {
   const [isProcessing, setIsProcessing] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState(getFormInputDefaultValues)
-  const handleSubmit = async (e) => {
+  const { register, handleSubmit, watch,
+    formState: { errors }, } = useForm()
+  const onSubmit = async (e) => {
     setIsProcessing(true)
-    e.preventDefault();
     await fetch("/api/send", {
       method: "POST",
       body: JSON.stringify(formData),
@@ -226,7 +232,6 @@ const VariationDefault = ({ primary, items }) => {
           type="submit"
           className="button-primary button px-6 disabled:cursor-not-allowed disabled:opacity-75"
           disabled={isProcessing || isSubmitted ? true : false}
-          onClick={handleSubmit}
         >
           <div className="flex items-center gap-6">
             <span>{children}</span>
@@ -294,12 +299,12 @@ const VariationDefault = ({ primary, items }) => {
         </div>
       </div>
       <div className={isExistsBody(primary.body) && styles["layout"]}>
-        <form className="grid gap-6">
+        <form className="grid gap-6" onSubmit={handleSubmit(onSubmit)}>
           {items.map((item, index) => {
             const [label] = item.text;
             const FormType = formTypes[formTypeSantize(item.type)];
             if (FormType) {
-              return <FormType key={index} onInputChange={handleInputChange} type={formTypeSantize(item.type)} extendedRichText={richTextGetExtended(item.text)} defaultValue={formData[formTypeSantize(label.text)]} name={formTypeSantize(label.text)}>{richTextGetLabel(item.text)}</FormType>;
+              return <FormType key={index} onInputChange={handleInputChange} type={formTypeSantize(item.type)} extendedRichText={richTextGetExtended(item.text)} defaultValue={formData[formTypeSantize(label.text)]} name={formTypeSantize(label.text)} validate={register} validateErrors={errors} required={item.required}>{richTextGetLabel(item.text)}</FormType>;
             } else {
               return <div key={index}>Unknown Form Element: {formTypeSantize(item.type)}</div>;
             }
